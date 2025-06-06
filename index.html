@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,6 +12,8 @@
         }
         * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif;}
         body {color: var(--text); line-height: 1.6;}
+
+        /* Componentes comunes */
         .container {width: 85%; margin: 0 auto; max-width: 1200px;}
         .btn {
             display: inline-block; padding: 12px 30px; background-color: var(--primary);
@@ -29,6 +30,8 @@
             content: ''; display: block; width: 80px; height: 4px;
             background-color: var(--primary); margin: 15px auto 0;
         }
+
+        /* Navbar */
         nav {
             background-color: rgba(255,255,255,0.95); position: fixed; width: 100%;
             z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;
@@ -50,10 +53,129 @@
         .nav-links a:hover:after {width: 100%;}
         .burger {display: none; cursor: pointer;}
         .burger div {width: 25px; height: 3px; background-color: var(--text); margin: 5px; transition: all 0.3s ease;}
+
+        /* Hero */
         .hero {
             height: 100vh; background: linear-gradient(rgba(106,13,173,0.7), rgba(10,36,99,0.8)), 
-            url('https://via.placeholder.com/1920x1080') no-repeat center center / cover;
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%23000080"/><circle cx="400" cy="300" r="50" fill="%236a0dad" opacity="0.3"/><circle cx="1200" cy="200" r="80" fill="%236a0dad" opacity="0.2"/><circle cx="800" cy="600" r="60" fill="%230a2463" opacity="0.3"/><circle cx="1600" cy="800" r="40" fill="%236a0dad" opacity="0.4"/></svg>') no-repeat center center / cover;
             display: flex; align-items: center; color: white; text-align: center;
+        }
+        .hero-content {max-width: 800px; margin: 0 auto; padding: 0 20px;}
+        .hero h1 {font-size: 3.5rem; margin-bottom: 20px; animation: fadeInUp 1s ease;}
+        .hero p {font-size: 1.2rem; margin-bottom: 30px; animation: fadeInUp 1s ease 0.2s forwards; opacity: 0;}
+        .hero .btn {animation: fadeInUp 1s ease 0.4s forwards; opacity: 0;}
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Grid (para secciones Why Us y Services) */
+        .features {display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;}
+        .feature-card {
+            flex: 1; min-width: 300px; max-width: 350px; background-color: white;
+            border-radius: 10px; padding: 30px; text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;
+        }
+        .feature-card:hover {transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1);}
+        .feature-icon {font-size: 3rem; color: var(--primary); margin-bottom: 20px;}
+        .feature-card h3 {margin-bottom: 15px; color: var(--secondary);}
+
+        /* Sections */
+        .why-us, .services, .clients, .contact {padding: 80px 0;}
+        .why-us, .contact {background-color: var(--light);}
+        .clients {background-color: white;}
+
+        /* Clients Carousel */
+        .clients-carousel {overflow: hidden; padding: 20px 0; position: relative;}
+        .carousel-container {display: flex; animation: scroll 30s linear infinite; width: calc(200px * 10);}
+        .client-logo {
+            width: 180px; height: 100px; margin: 0 10px; display: flex;
+            justify-content: center; align-items: center; background-color: var(--gray); border-radius: 5px;
+            font-weight: bold; color: var(--secondary);
+        }
+        .client-logo img {
+            max-width: 80%; max-height: 80%; filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .client-logo:hover img {filter: grayscale(0%);}
+        @keyframes scroll {
+            0% {transform: translateX(0);}
+            100% {transform: translateX(calc(-200px * 5));}
+        }
+
+        /* Contact */
+        .contact-container {display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;}
+        .contact-info, .contact-form {flex: 1; min-width: 300px;}
+        .contact-info h3 {color: var(--secondary); margin-bottom: 20px;}
+        .contact-info p {margin-bottom: 30px;}
+        .contact-details {list-style: none;}
+        .contact-details li {display: flex; align-items: center; margin-bottom: 15px;}
+        .contact-details i {color: var(--primary); font-size: 1.5rem; margin-right: 15px;}
+        .contact-form {
+            background-color: white; padding: 30px; border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .form-group {margin-bottom: 20px;}
+        .form-group label {display: block; margin-bottom: 8px; font-weight: 500;}
+        .form-control {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px;
+            font-size: 1rem; transition: border-color 0.3s;
+        }
+        .form-control:focus {outline: none; border-color: var(--primary);}
+        textarea.form-control {resize: vertical; min-height: 120px;}
+
+        /* Footer */
+        footer {background-color: var(--dark); color: white; padding: 60px 0 20px;}
+        .footer-container {display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;}
+        .footer-col {flex: 1; min-width: 250px;}
+        .footer-col h4 {
+            color: white; margin-bottom: 20px; font-size: 1.2rem;
+            position: relative; padding-bottom: 10px;
+        }
+        .footer-col h4:after {
+            content: ''; position: absolute; left: 0; bottom: 0;
+            width: 50px; height: 2px; background-color: var(--primary);
+        }
+        .footer-links {list-style: none;}
+        .footer-links li {margin-bottom: 15px;}
+        .footer-links a {color: var(--light); text-decoration: none; transition: color 0.3s;}
+        .footer-links a:hover {color: var(--primary); padding-left: 5px;}
+        .social-links {display: flex; gap: 15px; margin-top: 20px;}
+        .social-links a {
+            display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; background-color: #2c3036; border-radius: 50%;
+            color: white; transition: all 0.3s ease;
+        }
+        .social-links a:hover {background-color: var(--primary); transform: translateY(-3px);}
+        .copyright {
+            text-align: center; padding-top: 30px; margin-top: 30px;
+            border-top: 1px solid #2c3036; font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: absolute; right: 0; height: 0; top: 80px;
+                background-color: rgba(255,255,255,0.95); display: flex;
+                flex-direction: column; align-items: center; width: 100%;
+                transition: all 0.5s ease; overflow: hidden;
+            }
+            .nav-links.active {height: auto; padding: 20px 0;}
+            .nav-links li {margin: 15px 0;}
+            .burger {display: block;}
+            .burger.active div:nth-child(1) {transform: rotate(-45deg) translate(-5px, 6px);}
+            .burger.active div:nth-child(2) {opacity: 0;}
+            .burger.active div:nth-child(3) {transform: rotate(45deg) translate(-5px, -6px);}
+            .hero h1 {font-size: 2.5rem;}
+            body.dark-mode .nav-links {background-color: rgba(33,37,41,0.95);}
         }
     </style>
 </head>
@@ -62,7 +184,7 @@
         <div class="container nav-container">
             <a href="#" class="logo">SCOM</a>
             <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#clientes">Clientes</a></li>
@@ -71,6 +193,7 @@
             <div class="burger"><div></div><div></div><div></div></div>
         </div>
     </nav>
+
     <section class="hero" id="inicio">
         <div class="hero-content">
             <h1>Protegiendo tu Futuro Digital</h1>
@@ -78,5 +201,214 @@
             <a href="#servicios" class="btn">Consulta Nuestros Servicios</a>
         </div>
     </section>
+
+    <section class="why-us" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">Por qué Elegirnos</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Monitoreo 24/7</h3>
+                    <p>Protección continua para tus sistemas y datos con vigilancia en tiempo real las 24 horas del día, los 7 días de la semana.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>Soluciones Personalizadas</h3>
+                    <p>Creamos estrategias de seguridad a medida que se adaptan a las necesidades específicas de tu negocio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>Expertos Certificados</h3>
+                    <p>Nuestro equipo está formado por especialistas en ciberseguridad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-search"></i></div>
+                    <h3>Auditoría de Seguridad</h3>
+                    <p>Evaluamos tu infraestructura para identificar vulnerabilidades y recomendar mejoras de seguridad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Desarrollo Seguro</h3>
+                    <p>Implementamos prácticas de programación segura y auditorías de código para prevenir vulnerabilidades.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Seguridad en la Nube</h3>
+                    <p>Protegemos tus datos y aplicaciones en la nube con las más avanzadas tecnologías.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients" id="clientes">
+        <div class="container">
+            <h2 class="section-title">Confían en Nosotros</h2>
+            <div class="clients-carousel">
+                <div class="carousel-container">
+                    <!-- Logos de clientes -->
+                    <div class="client-logo">Cliente 1</div>
+                    <div class="client-logo">Cliente 2</div>
+                    <div class="client-logo">Cliente 3</div>
+                    <div class="client-logo">Cliente 4</div>
+                    <div class="client-logo">Cliente 5</div>
+                    <!-- Duplicados para scroll infinito -->
+                    <div class="client-logo">Cliente 1</div>
+                    <div class="client-logo">Cliente 2</div>
+                    <div class="client-logo">Cliente 3</div>
+                    <div class="client-logo">Cliente 4</div>
+                    <div class="client-logo">Cliente 5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>¿Tienes alguna pregunta?</h3>
+                    <p>Nuestro equipo está listo para ayudarte a resolver cualquier duda sobre nuestros servicios de seguridad informática.</p>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-phone"></i><span>+57 320 4737 899</span></li>
+                        <li><i class="fas fa-envelope"></i><span>scomciberseguridad@gmail.com</span></li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h4>SCOM</h4>
+                <p>Tu socio de confianza en seguridad informática. Protegiendo el futuro digital de empresas y profesionales.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <ul class="footer-links">
+                    <li><a href="#servicios">Seguridad en la Nube</a></li>
+                    <li><a href="#servicios">Desarrollo Seguro</a></li>
+                    <li><a href="#servicios">Auditoría de seguridad</a></li>
+                </ul>
+            </div>        
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 SCOM - Seguridad Informática. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    burger.classList.remove('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+            
+            // Show success message (in a real app, you would send this to a server)
+            alert('¡Gracias por contactarnos! Te responderemos pronto.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add animation on scroll for feature cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
