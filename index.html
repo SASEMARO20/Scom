@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCOM - Seguridad Informática</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6a0dad; --secondary: #0a2463; --text: #333;
+            --light: #f8f9fa; --gray: #e9ecef; --dark: #212529;
+        }
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif;}
+        body {color: var(--text); line-height: 1.6;}
+        .container {width: 85%; margin: 0 auto; max-width: 1200px;}
+        .btn {
+            display: inline-block; padding: 12px 30px; background-color: var(--primary);
+            color: white; border: none; border-radius: 5px; text-decoration: none; 
+            font-weight: bold; transition: all 0.3s ease; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn:hover {background-color: var(--secondary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3);}
+        .section-title {
+            text-align: center; margin-bottom: 50px; color: var(--primary);
+            font-size: 2.5rem; position: relative;
+        }
+        .section-title:after {
+            content: ''; display: block; width: 80px; height: 4px;
+            background-color: var(--primary); margin: 15px auto 0;
+        }
+        nav {
+            background-color: rgba(255,255,255,0.95); position: fixed; width: 100%;
+            z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;
+        }
+        nav.scrolled {background-color: rgba(255,255,255,0.98); box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+        .nav-container {display: flex; justify-content: space-between; align-items: center; padding: 20px 0;}
+        .logo {font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none;}
+        .nav-links {list-style: none; display: flex;}
+        .nav-links li {margin-left: 30px;}
+        .nav-links a {
+            text-decoration: none; color: var(--text); font-weight: 500;
+            transition: color 0.3s; position: relative;
+        }
+        .nav-links a:after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -5px; left: 0; background-color: var(--primary); transition: width 0.3s;
+        }
+        .nav-links a:hover {color: var(--primary);}
+        .nav-links a:hover:after {width: 100%;}
+        .burger {display: none; cursor: pointer;}
+        .burger div {width: 25px; height: 3px; background-color: var(--text); margin: 5px; transition: all 0.3s ease;}
+        .hero {
+            height: 100vh; background: linear-gradient(rgba(106,13,173,0.7), rgba(10,36,99,0.8)), 
+            url('https://via.placeholder.com/1920x1080') no-repeat center center / cover;
+            display: flex; align-items: center; color: white; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">SCOM</a>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="burger"><div></div><div></div><div></div></div>
+        </div>
+    </nav>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Protegiendo tu Futuro Digital</h1>
+            <p>Soluciones de seguridad informática avanzadas para empresas y profesionales.</p>
+            <a href="#servicios" class="btn">Consulta Nuestros Servicios</a>
+        </div>
+    </section>
+</body>
+</html>
