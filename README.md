@@ -1,2 +1,0 @@
-# Scom
-Cyber security service
