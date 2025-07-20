@@ -10,13 +10,12 @@
         --primary: #A259EA; /* Morado vibrante */
         --secondary: #6A29EA; /* Morado oscuro */
         --text: #222; /* Negro para texto principal */
-        --bg-light: #f6f8fa; /* Fondo claro para tarjetas y secciones */
-        --gray: #e0e0e0;
-        --dark: #212529;
+        --bg-light: #f6f8fa; /* Fondo claro para tarjetas */
+        --bg-white: #fff;
     }
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif;}
     body {
-        background-color: white;
+        background-color: var(--bg-white);
         color: var(--text);
         line-height: 1.6;
     }
@@ -29,6 +28,26 @@
     .footer-col h4 {
         color: var(--primary);
     }
+    /* Secciones moradas */
+    .section-purple {
+        background: linear-gradient(120deg, var(--primary) 80%, var(--secondary) 100%);
+        color: #fff;
+    }
+    .section-purple h1, 
+    .section-purple h2, 
+    .section-purple h3,
+    .section-purple h4 {
+        color: #fff;
+    }
+    .section-purple .btn {
+        background-color: #fff;
+        color: var(--primary);
+    }
+    .section-purple .btn:hover {
+        background-color: var(--secondary);
+        color: #fff;
+    }
+
     /* Componentes comunes */
     .container {width: 85%; margin: 0 auto; max-width: 1200px;}
     .btn {
@@ -50,30 +69,30 @@
 
     /* Navbar */
     nav {
-        background-color: #fff; position: fixed; width: 100%;
+        background-color: var(--primary); position: fixed; width: 100%;
         z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: all 0.3s ease;
     }
     nav.scrolled {box-shadow: 0 5px 15px rgba(0,0,0,0.12);}
     .nav-container {display: flex; justify-content: space-between; align-items: center; padding: 20px 0;}
-    .logo {font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none;}
+    .logo {font-size: 24px; font-weight: bold; color: #fff; text-decoration: none;}
     .nav-links {list-style: none; display: flex;}
     .nav-links li {margin-left: 30px;}
     .nav-links a {
-        text-decoration: none; color: var(--text); font-weight: 500;
+        text-decoration: none; color: #fff; font-weight: 500;
         transition: color 0.3s; position: relative;
     }
     .nav-links a:after {
         content: ''; position: absolute; width: 0; height: 2px;
-        bottom: -5px; left: 0; background-color: var(--primary); transition: width 0.3s;
+        bottom: -5px; left: 0; background-color: #fff; transition: width 0.3s;
     }
-    .nav-links a:hover {color: var(--primary);}
+    .nav-links a:hover {color: #fff;}
     .nav-links a:hover:after {width: 100%;}
     .burger {display: none; cursor: pointer;}
-    .burger div {width: 25px; height: 3px; background-color: var(--text); margin: 5px; transition: all 0.3s ease;}
+    .burger div {width: 25px; height: 3px; background-color: #fff; margin: 5px; transition: all 0.3s ease;}
 
     /* Hero */
     .hero {
-        min-height: 70vh; background: linear-gradient(rgba(162,89,234,0.12), rgba(106,41,234,0.09)), url('');
+        min-height: 70vh; background: var(--bg-white);
         display: flex; align-items: center; color: var(--text); text-align: center;
         padding-top: 120px;
     }
@@ -90,7 +109,8 @@
     .feature-card:hover {transform: translateY(-10px); box-shadow: 0 15px 30px rgba(162,89,234,0.12);}
     .feature-icon {font-size: 3rem; color: var(--primary); margin-bottom: 20px;}
     .why-us, .services, .clients, .contact {padding: 80px 0;}
-    .why-us, .contact, .clients {background-color: #fff;}
+    .why-us, .services, .clients, .contact {background-color: var(--bg-white);}
+    .why-us.section-purple, .services.section-purple, .clients.section-purple, .contact.section-purple {background: linear-gradient(120deg, var(--primary) 80%, var(--secondary) 100%); color: #fff;}
 
     /* Clients Carousel */
     .clients-carousel {overflow: hidden; padding: 20px 0; position: relative;}
@@ -131,38 +151,38 @@
     textarea.form-control {resize: vertical; min-height: 120px;}
 
     /* Footer */
-    footer {background-color: var(--bg-light); color: var(--text); padding: 60px 0 20px;}
+    footer {background-color: var(--primary); color: #fff; padding: 60px 0 20px;}
     .footer-container {display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;}
     .footer-col {flex: 1; min-width: 250px;}
     .footer-col h4 {
-        color: var(--primary); margin-bottom: 20px; font-size: 1.2rem;
+        color: #fff; margin-bottom: 20px; font-size: 1.2rem;
         position: relative; padding-bottom: 10px;
     }
     .footer-col h4:after {
         content: ''; position: absolute; left: 0; bottom: 0;
-        width: 50px; height: 2px; background-color: var(--primary);
+        width: 50px; height: 2px; background-color: #fff;
     }
     .footer-links {list-style: none;}
     .footer-links li {margin-bottom: 15px;}
-    .footer-links a {color: var(--text); text-decoration: none; transition: color 0.3s;}
-    .footer-links a:hover {color: var(--primary); padding-left: 5px;}
+    .footer-links a {color: #fff; text-decoration: none; transition: color 0.3s;}
+    .footer-links a:hover {color: #fff; padding-left: 5px; font-weight: bold;}
     .social-links {display: flex; gap: 15px; margin-top: 20px;}
     .social-links a {
         display: flex; align-items: center; justify-content: center;
-        width: 40px; height: 40px; background-color: #e0e0e0; border-radius: 50%;
-        color: var(--text); transition: all 0.3s ease;
+        width: 40px; height: 40px; background-color: #fff; border-radius: 50%;
+        color: var(--primary); transition: all 0.3s ease; border: 1px solid var(--primary);
     }
-    .social-links a:hover {background-color: var(--primary); color: #fff; transform: translateY(-3px);}
+    .social-links a:hover {background-color: var(--secondary); color: #fff; transform: translateY(-3px);}
     .copyright {
         text-align: center; padding-top: 30px; margin-top: 30px;
-        border-top: 1px solid #e0e0e0; font-size: 0.9rem;
+        border-top: 1px solid #fff; font-size: 0.9rem; color: #fff;
     }
 
     /* Responsive */
     @media screen and (max-width: 768px) {
         .nav-links {
             position: absolute; right: 0; height: 0; top: 80px;
-            background-color: #fff; display: flex;
+            background-color: var(--primary); display: flex;
             flex-direction: column; align-items: center; width: 100%;
             transition: all 0.5s ease; overflow: hidden;
         }
