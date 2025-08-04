@@ -1,10 +1,11 @@
 <style>
-    :root {
-    --primary: #240046;
-    --secondary: #240046;
-    --text: #222;
-    --bg-light: #f6f8fa;
+   :root {
+    --primary: #240046; /* Morado oscuro principal */
+    --secondary: #240046; /* Morado oscuro secundario */
+    --text: #222; /* Negro para texto principal */
+    --bg-light: #f6f8fa; /* Fondo claro para tarjetas */
     --bg-white: #fff;
+   
 }
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif;}
     body {
