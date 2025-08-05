@@ -230,4 +230,9 @@ footer {
 }
 .dropdown:hover .fas.fa-caret-down {
     transform: rotate(180deg);
+
+.hero.section-purple h1,
+.hero.section-purple p {
+    color: var(--primary);
+}
 }
