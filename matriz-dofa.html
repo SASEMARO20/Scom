@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Matriz DOFA | SCOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+        .dofa-container {
+            max-width: 1100px;
+            margin: 60px auto 40px auto;
+            background: #f8f8ff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(80,0,120,0.09);
+            padding: 36px 18px 28px 18px;
+        }
+        .dofa-title {
+            text-align: center;
+            font-size: 2.1em;
+            color: #240046;
+            margin-bottom: 28px;
+            font-weight: bold;
+        }
+        .dofa-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(80,0,120,0.07);
+        }
+        .dofa-table th, .dofa-table td {
+            padding: 18px 14px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #e0d7f7;
+            font-size: 1em;
+        }
+        .dofa-table th {
+            background: #6c3fc5;
+            color: #fff;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .dofa-table .dofa-section {
+            background: #f3eaff;
+            color: #240046;
+            font-weight: bold;
+            text-align: center;
+        }
+        .dofa-table ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+        .dofa-table ul li {
+            margin-bottom: 7px;
+        }
+        .dofa-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            gap: 10px;
+        }
+        .dofa-logo-img {
+            height: 60px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 6px 10px;
+            box-shadow: 0 2px 8px rgba(80,0,120,0.07);
+            display: inline-block;
+        }
+        .dofa-logo-text {
+            font-size: 1.5em;
+            color: #6c3fc5;
+            font-weight: bold;
+            display: inline-block;
+        }
+        @media (max-width: 900px) {
+            .dofa-container { padding: 16px 2vw; }
+            .dofa-table th, .dofa-table td { font-size: 0.97em; padding: 10px 5px; }
+            .dofa-logo-img { height: 40px; }
+        }
+        @media (max-width: 600px) {
+            .dofa-title { font-size: 1.3em; }
+            .dofa-table th, .dofa-table td { font-size: 0.93em; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+                <span style="background:#fff; border-radius:8px; padding:3px 6px; display:inline-block;">
+                    <img src="logo-scom.png" alt="Logo SCOM" class="dofa-logo-img">
+                </span>
+                <span class="logo" style="color:#fff; font-weight:bold; font-size:1.6em;">SCOM</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="mision-vision.html">Misión y Visión</a></li>
+                        <li><a href="justificacion.html">Justificación</a></li>
+                        <li><a href="objetivos.html">Objetivos</a></li>
+                        <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#clientes">Clientes</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="burger"><div></div><div></div><div></div></div>
+        </div>
+    </nav>
+
+    <div class="dofa-container">
+
+        <div class="dofa-title">Matriz DOFA</div>
+        <table class="dofa-table">
+            <tr>
+                <th>Fortalezas</th>
+                <th>Debilidades</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>Buena atención al cliente.</li>
+                        <li>Constante actualización de los sistemas de seguridad.</li>
+                        <li>Acompañamiento de manera remota con el cliente.</li>
+                        <li>Amplia gama de servicios y productos, desde antivirus hasta servicios de monitoreo y respuesta a incidentes.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Poca capacidad de personal de trabajo.</li>
+                        <li>Falta de equipo y herramientas para abordar fallos.</li>
+                        <li>Nuestros servicios y productos pueden ser percibidos como caros por algunos clientes.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Oportunidades</th>
+                <th>Amenazas</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>Obtener un inversionista para mayor financiación.</li>
+                        <li>Posibilidad de formar alianzas estratégicas con otras empresas tecnológicas y de ciberseguridad.</li>
+                        <li>Aumento de la demanda global de soluciones de ciberseguridad debido al incremento de amenazas.</li>
+                        <li>Concretar un convenio con una empresa de publicidad.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Aumento de la competencia con la entrada de nuevos actores en el mercado.</li>
+                        <li>Desarrollo constante de nuevas y más sofisticadas amenazas cibernéticas.</li>
+                        <li>Susceptibilidad a un hackeo masivo de nuestro sistema.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th class="dofa-section">FO</th>
+                <th class="dofa-section">DO</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>Utilizar la constante actualización de los sistemas de seguridad para satisfacer la creciente demanda de soluciones de ciberseguridad.</li>
+                        <li>Aprovechar la amplia gama de servicios y productos para expandirse en nuevos mercados a través de alianzas estratégicas.</li>
+                        <li>Usar la capacidad de innovación para estar a la vanguardia de las amenazas cibernéticas emergentes, desarrollando y ofreciendo soluciones innovadoras que protejan a las empresas contra las nuevas formas de ataque.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Buscar un inversionista para obtener financiación y así superar la falta de capacidad de personal y de equipo.</li>
+                        <li>Utilizar alianzas estratégicas con empresas tecnológicas y de ciberseguridad para superar la falta de recursos y abordar la percepción de altos costos por parte de algunos clientes.</li>
+                        <li>Desarrollar una campaña de marketing sólida y enfocada para aumentar el reconocimiento de marca.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th class="dofa-section">FA</th>
+                <th class="dofa-section">DA</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>Aplicar la buena atención al cliente y el acompañamiento remoto para contrarrestar la competencia y mantener la lealtad del cliente frente a nuevas y más sofisticadas amenazas cibernéticas.</li>
+                        <li>Utilizar la constante actualización de los sistemas de seguridad para protegerse contra posibles hackeos masivos del sistema.</li>
+                        <li>Realizar auditorías internas frecuentes y simulacros de ataque para asegurar que los sistemas están preparados y protegidos contra posibles brechas.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Implementar estrategias de optimización de costos y eficiencia operativa para reducir los gastos iniciales y operativos.</li>
+                        <li>Fortalecer la resiliencia organizacional mediante la capacitación continua del personal y la actualización constante de tecnologías y procesos.</li>
+                        <li>Invertir en personal y tecnología para fortalecer la capacidad de respuesta y seguridad. Esto incluye contratar personal adicional, adquirir herramientas y tecnologías de seguridad, y optimizar los costos para ofrecer precios competitivos.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
