@@ -5,26 +5,55 @@
     <title>Justificación | SCOM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #240046;
+        }
+        .justificacion-block {
+            background: #f8f8ff;
+            border-radius: 10px;
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(80,0,120,0.07);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.15em;
+            color: #240046;
+        }
+        @media (max-width: 600px) {
+            .justificacion-block {
+                padding: 18px 8px;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">SCOM</a>
-<ul class="nav-links">
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li class="dropdown">
-        <a href="#nosotros">Nosotros <i class="fas fa-caret-down"></i></a>
-	<ul class="dropdown-menu">
-   		 <li><a href="mision.html">Misión</a></li>
-    		<li><a href="vision.html">Visión</a></li>
-   		 <li><a href="justificacion.html">Justificación</a></li>
-   		 <li><a href="objetivos.html">Objetivos</a></li>
-	</ul>
-    </li>
-    <li><a href="#clientes">Clientes</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-</ul>
+            <a href="index.html" class="logo">SCOM</a>
+            <ul class="nav-links">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                    <li class="dropdown">
+                          <a href="#servicios">Servicios <i class="fas fa-caret-down"></i></a>
+                          <ul class="dropdown-menu">
+                          <li><a href="#que-ofrecemos">¿Qué ofrecemos?</a></li>
+                     </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="mision-vision.html">Misión y Visión</a></li>
+                        <li><a href="justificacion.html">Justificación</a></li>
+                        <li><a href="objetivos.html">Objetivos</a></li>
+                        <li><a href="matriz-dofa.html">Matriz DOFA</a></li>                        
+                    </ul>
+                </li>
+                <li><a href="index.html#clientes">Clientes</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
             <div class="burger"><div></div><div></div><div></div></div>
         </div>
     </nav>
