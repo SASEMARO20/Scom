@@ -3,11 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | SCOM</title>
+    <title>Nuestro equipo de trabajo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .equipo-titulos {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 40px 60px;
+            justify-items: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .equipo-miembro {
+            text-align: center;
+            background: #faf7ff;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(120,0,180,0.07);
+            padding: 32px 24px 24px 24px;
+            width: 100%;
+            max-width: 320px;
+            transition: transform 0.2s;
+        }
+        .equipo-miembro:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 6px 24px rgba(120,0,180,0.13);
+        }
+        .equipo-miembro img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #a259ea;
+            margin-bottom: 18px;
+            background: #fff;
+        }
+        .equipo-miembro h4 {
+            margin: 12px 0 6px 0;
+            font-size: 1.2em;
+            color: #240046;
+        }
+        .equipo-miembro p {
+            margin: 0;
+            color: #6c3483;
+            font-size: 1em;
+        }
+        /* Ubicación específica para cada miembro */
+        .equipo-1 { grid-column: 1; grid-row: 1; }
+        .equipo-2 { grid-column: 3; grid-row: 1; }
+        .equipo-3 { grid-column: 1; grid-row: 2; }
+        .equipo-4 { grid-column: 3; grid-row: 2; }
+        .equipo-5 { grid-column: 2; grid-row: 1; }
+        @media (max-width: 900px) {
+            .equipo-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: none;
+                gap: 32px;
+            }
+            .equipo-1, .equipo-2, .equipo-3, .equipo-4, .equipo-5 {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+        .organigrama-titulo {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 24px;
+        }
+        .organigrama-img {
+            display: flex;
+            justify-content: center;
+        }
+        .organigrama-img img {
+            width: 90vw;
+            max-width: 1200px;
+            min-width: 320px;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(120,0,180,0.07);
+        }
+        @media (max-width: 1200px) {
+            .organigrama-img img {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">
@@ -38,50 +126,50 @@
         </div>
     </nav>
 
-    <section class="contact" id="contacto">
-        <div class="container">
-            <h2 class="section-title">Contáctanos</h2>
-            <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
-                <div class="contact-info" style="flex:1; min-width:260px; max-width:350px;">
-                    <h3>¿Tienes alguna pregunta?</h3>
-                    <p>Nuestro equipo está listo para ayudarte a resolver cualquier duda sobre nuestros servicios de seguridad informática.</p>
-                    <ul class="contact-details">
-                        <li><i class="fas fa-phone"></i><span>   +57 320 4737 899</span></li>
-                        <li><i class="fas fa-envelope"></i><span>   scomciberseguridad@gmail.com</span></li>
-                    </ul>
-                </div>
-                <div class="contact-form-container" style="flex:1; min-width:260px; max-width:400px;">
-                    <form id="contactForm" action="https://formsubmit.co/scomciberseguridad@gmail.com" method="POST">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required>
-
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="phone">Teléfono</label>
-                        <input type="text" id="phone" name="phone">
-
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-
-                        <input type="hidden" name="_next" value="https://scomciberseguridad.com/gracias.html">
-                        <button type="submit" class="servicios-btn">ENVIAR MENSAJE</button>
-                    </form>
-                </div>
+    <main class="container" style="margin-top: 40px;">
+        <div class="equipo-titulos">
+            <h1>Nosotros</h1>
+            <h2>Equipo de Trabajo</h2>
+        </div>
+        <div class="equipo-grid">
+            <div class="equipo-miembro equipo-1">
+                <img src="img/persona1.jpg" alt="Felipe Rojas">
+                <h4>Felipe Rojas</h4>
+                <p>Gerente General</p>
+            </div>
+            <div class="equipo-miembro equipo-5">
+                <img src="img/persona5.jpg" alt="Samuel Marroquín">
+                <h4>Samuel Marroquín</h4>
+                <p>Presidente</p>
+            </div>
+            <div class="equipo-miembro equipo-2">
+                <img src="img/persona2.jpg" alt="David Castro">
+                <h4>David Castro</h4>
+                <p>Recursos Humanos</p>
+            </div>
+            <div class="equipo-miembro equipo-3">
+                <img src="img/persona3.jpg" alt="Luis Romero">
+                <h4>Luis Romero</h4>
+                <p>Tecnico Especializado</p>
+            </div>
+            <div class="equipo-miembro equipo-4">
+                <img src="img/persona4.jpg" alt="Juan Acosta">
+                <h4>Juan Acosta</h4>
+                <p>Representante de Finanzas</p>
             </div>
         </div>
-    </section>
-    <footer>
-    
+
+        <div class="organigrama-titulo">
+            <h2>Organigrama Empresarial</h2>
+        </div>
+        <div class="organigrama-img">
+            <img src="img/img12 (1).jpg" alt="Organigrama empresarial">
+        </div>
+    </main>
+
+    <footer style="text-align:center; margin-top:40px; padding:20px 0; background:#f4f4f4;">
+        <p>&copy; 2025 SCOM. Todos los derechos reservados.</p>
     </footer>
-    <script>
-      
-        const burger = document.querySelector('.burger');
-        const navLinks = document.querySelector('.nav-links');
-        burger.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            burger.classList.toggle('active');
-        });
-    </script>
+
 </body>
 </html>
