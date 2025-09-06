@@ -1,8 +1,9 @@
-:root {
-    --primary: #240046; /* Morado oscuro principal */
-    --secondary: #240046; /* Morado oscuro secundario */
-    --text: #222; /* Negro para texto principal */
-    --bg-light: #f6f8fa; /* Fondo claro para tarjetas */
+:root
+{
+    --primary: #240046; 
+    --secondary: #240046; 
+    --text: #222; 
+    --bg-light: #f6f8fa; 
     --bg-white: #fff;
 }
 * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif;}
@@ -22,7 +23,7 @@ h1, h2, h3, h4, h5, h6,
     color: var(--primary);
 }
 
-/* NAVBAR */
+
 nav {
     width: 100%;
     background: var(--primary);
@@ -86,7 +87,7 @@ nav {
 .burger {display: none; cursor: pointer;}
 .burger div {width: 25px; height: 3px; background-color: #fff; margin: 5px; transition: all 0.3s ease;}
 
-/* Dropdown */
+
 .nav-links li.dropdown {
     position: relative;
 }
@@ -126,7 +127,27 @@ nav {
     transform: rotate(180deg);
 }
 
-/* Responsive Navbar */
+.dropdown-menu li:first-child a {
+    text-align: center;
+    display: block;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    gap: 10px;
+}
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
 @media (max-width: 900px) {
     .nav-container {
         width: 96%;
@@ -166,7 +187,7 @@ nav {
     }
 }
 
-/* SECCIONES Y COMPONENTES */
+
 .ofrecemos-block {
     background: #f8f8ff;
     border-radius: 12px;
@@ -243,7 +264,7 @@ nav {
     }
 }
 
-/* HERO Y SECCIONES */
+
 .hero {
     min-height: 70vh;
     background: var(--bg-white);
@@ -265,28 +286,28 @@ nav {
 }
 .feature-card:hover {transform: translateY(-10px); box-shadow: 0 15px 30px rgba(162,89,234,0.12);}
 .feature-icon {font-size: 3rem; color: var(--primary); margin-bottom: 20px;}
-.why-us, .services, .clients, .contact {padding: 80px 0;}
-.why-us, .services, .clients, .contact {background-color: var(--bg-white);}
-.why-us.section-purple, .services.section-purple, .clients.section-purple, .contact.section-purple {background: linear-gradient(120deg, var(--primary) 80%, var(--secondary) 100%); color: #fff;}
+.why-us, .services, .advantaje, .contact {padding: 80px 0;}
+.why-us, .services, .advantaje, .contact {background-color: var(--bg-white);}
+.why-us.section-purple, .services.section-purple, .advantaje.section-purple, .contact.section-purple {background: linear-gradient(120deg, var(--primary) 80%, var(--secondary) 100%); color: #fff;}
 
-.clients-carousel {overflow: hidden; padding: 20px 0; position: relative;}
+.advantaje-carousel {overflow: hidden; padding: 20px 0; position: relative;}
 .carousel-container {display: flex; animation: scroll 30s linear infinite; width: calc(200px * 10);}
 .client-logo {
     width: 180px; height: 100px; margin: 0 10px; display: flex;
     justify-content: center; align-items: center; background-color: var(--bg-light); border-radius: 5px;
     font-weight: bold; color: var(--primary); box-shadow: 0 1px 4px rgba(162,89,234,0.09);
 }
-.client-logo img {
+.advantaje-logo img {
     max-width: 80%; max-height: 80%; filter: grayscale(100%);
     transition: filter 0.3s ease;
 }
-.client-logo:hover img {filter: grayscale(0%);}
+.advantaje-logo:hover img {filter: grayscale(0%);}
 @keyframes scroll {
     0% {transform: translateX(0);}
     100% {transform: translateX(calc(-200px * 5));}
 }
 
-/* BOTONES Y UTILIDADES */
+
 .servicios-btn {
     background: #240046 !important;
     color: #fff !important;
@@ -322,9 +343,9 @@ nav {
     border-radius: 2px;
 }
 
-/* FORMULARIO DE CONTACTO */
+
 .contact-form-container {
-    background: #b693e4e3;
+    background: #9a5ceba6;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(80,0,120,0.10);
     padding: 32px 24px;
@@ -365,7 +386,7 @@ nav {
 .form-control:focus {outline: none; border-color: var(--primary);}
 textarea.form-control {resize: vertical; min-height: 120px;}
 
-/* FOOTER */
+
 footer {
     background-color: #111;
     color: #fff;
@@ -384,7 +405,7 @@ footer {
 .footer-links {list-style: none;}
 .footer-links li {margin-bottom: 15px;}
 .footer-links a {color: #fff; text-decoration: none; transition: color 0.3s;}
-.footer-links a:hover {color: #fff; padding-left: 5px; font-weight: bold;}
+.footer-links a:hover {color: #fff; padding-left: 15px; font-weight: bold;}
 .social-links {display: flex; gap: 15px; margin-top: 20px;}
 .social-links a {
     display: flex; align-items: center; justify-content: center;
@@ -418,5 +439,31 @@ footer {
 }
 #boton-secreto:hover {
     background: #a259ea;
-    opacity: 1;
+    opacity: 1;}
+
+
+.paquete-detalle {
+    display: none;
+    margin: 0 0 16px 24px;
+    background: #f6f2ff;
+    border-radius: 8px;
+    padding: 10px 16px;
+}
+.paquete-btn {
+    background: none;
+    border: none;
+    color: #240046;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 12px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.paquete-btn:focus {
+    outline: 2px solid #a259ea;
+}
+.paquete.open .paquete-detalle {
+    display: block;
 }
