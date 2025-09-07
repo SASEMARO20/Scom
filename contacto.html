@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | SCOM</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <nav>
@@ -15,7 +15,7 @@
                 SCOM
             </a>
             <ul class="nav-links">
-                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li class="dropdown">
                     <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
@@ -37,7 +37,6 @@
             <div class="burger"><div></div><div></div><div></div></div>
         </div>
     </nav>
-
     <section class="contact" id="contacto">
         <div class="container">
             <h2 class="section-title">Contáctanos</h2>
@@ -54,16 +53,12 @@
                     <form id="contactForm" action="https://formsubmit.co/scomciberseguridad@gmail.com" method="POST">
                         <label for="name">Nombre</label>
                         <input type="text" id="name" name="name" required>
-
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
-
                         <label for="phone">Teléfono</label>
                         <input type="text" id="phone" name="phone">
-
                         <label for="message">Mensaje</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
-
                         <input type="hidden" name="_next" value="gracias.html">
                         <button type="submit" class="servicios-btn">ENVIAR MENSAJE</button>
                     </form>
@@ -72,10 +67,9 @@
         </div>
     </section>
     <footer>
-    
+        <p style="text-align:center; margin-top:40px; padding:20px 0; background:#f4f4f4;">&copy; 2025 SCOM. Todos los derechos reservados.</p>
     </footer>
     <script>
-      
         const burger = document.querySelector('.burger');
         const navLinks = document.querySelector('.nav-links');
         burger.addEventListener('click', function() {
