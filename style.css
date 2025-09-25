@@ -44,6 +44,28 @@ nav {
     margin: 0 auto;
     max-width: 1200px;
 }
+
+.logo-circle {
+    width: 90px;              
+    height: 90px;
+    background: #fff;        
+    border-radius: 50%;       
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #a259ea; 
+    box-shadow: 0 2px 12px rgba(120,0,180,0.10);
+    margin-right: 12px;         
+}
+
+.logo-circle img {
+    width: 80px;              
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: transparent; 
+    display: block;
+}
 .logo-img {
     width: 80px;
     height: 80px;
