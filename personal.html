@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+            vertical-align: middle;
+            margin-right: 10px;
+            border: 2px solid #a259ea;
+        }
         .equipo-titulos {
             text-align: center;
             margin-bottom: 32px;
@@ -33,15 +43,6 @@
         .equipo-miembro:hover {
             transform: translateY(-6px) scale(1.03);
             box-shadow: 0 6px 24px rgba(120,0,180,0.13);
-        }
-        .equipo-miembro img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #a259ea;
-            margin-bottom: 18px;
-            background: #fff;
         }
         .equipo-miembro h4 {
             margin: 12px 0 6px 0;
@@ -99,7 +100,7 @@
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="img/img12.jpg" alt="Logo SCOM" style="height:40px; vertical-align:middle; margin-right:10px;">
+                <img src="img/img12.jpg" alt="Logo SCOM" class="logo-img">
                 SCOM
             </a>
             <ul class="nav-links">
