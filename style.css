@@ -322,7 +322,7 @@ nav {
 
 .lateral-img {
   position: absolute;
-  top: 85%;          
+  top: 75%;          
   transform: translateY(-50%);
   width: 320px;       
   height: auto;
@@ -332,8 +332,8 @@ nav {
   border-radius: 16px;
 }
 
-.lateral-img.left { left: 48px; }
-.lateral-img.right { right: 48px; }
+.lateral-img.left { left: 60px; }
+.lateral-img.right { right: 60px; }
 
 @media (max-width: 900px) {
   .lateral-img { display: none; }
