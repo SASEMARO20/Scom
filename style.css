@@ -296,7 +296,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('img/Gif1.gif') center center/cover no-repeat;
+  background: url('img/img19.jpeg') center center/cover no-repeat;
   z-index: 1;
   overflow: hidden;
 }
@@ -322,9 +322,9 @@ nav {
 
 .lateral-img {
   position: absolute;
-  top: 80%;
+  top: 85%;          
   transform: translateY(-50%);
-  width: 300px;
+  width: 320px;       
   height: auto;
   z-index: 3;
   opacity: 0.95;
@@ -334,10 +334,10 @@ nav {
 
 .lateral-img.left { left: 48px; }
 .lateral-img.right { right: 48px; }
+
 @media (max-width: 900px) {
   .lateral-img { display: none; }
 }
-
 
 
 .hero h1 {font-size: 3.2rem; margin-bottom: 20px;}
