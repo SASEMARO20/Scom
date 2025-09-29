@@ -292,18 +292,18 @@ nav {
 
 .hero {
   position: relative;
-  min-height: 400px; 
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('img/Gif.mp4') center center/cover no-repeat;
+  background: url('img/fondo.gif') center center/cover no-repeat;
   z-index: 1;
   overflow: hidden;
 }
 .hero-content {
   position: relative;
   z-index: 2;
-  background: rgba(255,255,255,0.85); 
+  background: rgba(255,255,255,0.85);
   padding: 40px 60px;
   border-radius: 10px;
 }
@@ -311,9 +311,20 @@ nav {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.2); 
+  background: rgba(255,255,255,0.2);
   z-index: 1;
 }
+.lateral-img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: auto;
+  z-index: 2;
+  opacity: 0.85;
+}
+.lateral-img.left { left: 0; }
+.lateral-img.right { right: 0; }
 .hero-content {max-width: 800px; margin: 0 auto; padding: 0 20px;}
 .hero h1 {font-size: 3.2rem; margin-bottom: 20px;}
 .hero p {font-size: 1.2rem; margin-bottom: 30px;}
