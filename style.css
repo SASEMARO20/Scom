@@ -492,12 +492,10 @@ footer {
 .paquete.open .paquete-detalle {
     display: block;
 }
-
-
 .logo-circle {
     width: 100px !important;
     height: 100px !important;
-    border: 1.5px solid #a259ea !important;
+    border: 2px solid #a259ea !important;
     background: #fff !important;
     display: flex !important;
     align-items: center !important;
@@ -507,8 +505,8 @@ footer {
 }
 
 .logo-circle img {
-    width: 96px !important;
-    height: 96px !important;
+    width: 94px !important;
+    height: 94px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
     background: transparent !important;
