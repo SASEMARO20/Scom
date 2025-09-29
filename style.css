@@ -322,9 +322,9 @@ nav {
 
 .lateral-img {
   position: absolute;
-  top: 50%;
+  top: 80%;
   transform: translateY(-50%);
-  width: 220px;
+  width: 300px;
   height: auto;
   z-index: 3;
   opacity: 0.95;
@@ -334,13 +334,10 @@ nav {
 
 .lateral-img.left { left: 48px; }
 .lateral-img.right { right: 48px; }
-
-/* Responsive: oculta imágenes laterales en móvil */
 @media (max-width: 900px) {
   .lateral-img { display: none; }
-  .hero { min-height: 400px; }
-  .hero-content { padding: 20px 10px; }
 }
+
 
 
 .hero h1 {font-size: 3.2rem; margin-bottom: 20px;}
