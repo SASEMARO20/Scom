@@ -322,7 +322,7 @@ nav {
 
 .lateral-img {
   position: absolute;
-  top: 75%;          
+  top: 60%;          
   transform: translateY(-50%);
   width: 320px;       
   height: auto;
