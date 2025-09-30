@@ -575,23 +575,46 @@ footer {
 
 .ofrecemos-header {
   display: flex;
-  align-items: center;
-  gap: 24px;           
-  margin-bottom: 32px; 
-  margin-top: 40px;    
+  align-items: center; /* Centra verticalmente */
+  gap: 24px;           /* Separación entre imagen y título */
+  margin-bottom: 32px; /* Espacio debajo del header */
+  margin-top: 40px;    /* Espacio arriba del header */
 }
 
 .decoracion-lateral {
-  width: 120px;        
+  width: 120px;        /* Tamaño ajustable */
   height: auto;
 }
 .section-title {
-  margin: 0;         
+  margin: 0;           /* Elimina margen superior */
 }
 
 .section-title {
-  margin-top: 40px;  
+  margin-top: 40px;   /* Prueba con 40px, puedes ajustar */
   margin-bottom: 16px;
 }
+
+.container {
+  padding-top: 80px; /* O el valor que prefieras */
+}
+
+.seccion-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  margin-top: 40px;
+}
+.decoracion-seccion {
+  width: 100px;
+  height: auto;
+}
+
+
+
+
+
+
+
 
 background: url('img/Gif1.gif') center center/cover no-repeat;
