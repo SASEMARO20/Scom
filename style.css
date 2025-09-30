@@ -290,7 +290,7 @@ nav {
 }
 
 
-/* HERO SECTION */
+
 .hero {
   position: relative;
   min-height: 600px;
@@ -321,7 +321,7 @@ nav {
   z-index: 1;
 }
 
-/* WHY-US SECTION */
+
 .why-us {
   position: relative;
   margin-top: 40px;
@@ -348,7 +348,7 @@ nav {
   z-index: 3;
 }
 
-/* Responsive */
+
 @media (max-width: 1200px) {
   .why-us .lateral-img {
     width: 180px;
@@ -573,5 +573,25 @@ footer {
     margin: 0 !important;
 }
 
+.ofrecemos-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;           
+  margin-bottom: 32px; 
+  margin-top: 40px;    
+}
+
+.decoracion-lateral {
+  width: 120px;        
+  height: auto;
+}
+.section-title {
+  margin: 0;         
+}
+
+.section-title {
+  margin-top: 40px;  
+  margin-bottom: 16px;
+}
 
 background: url('img/Gif1.gif') center center/cover no-repeat;
