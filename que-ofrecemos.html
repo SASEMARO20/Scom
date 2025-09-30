@@ -3,267 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>¿Qué ofrecemos? | SCOM</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .ofrecemos-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-            justify-content: center;
-        }
-        .ofrecemos-col {
-            flex: 1 1 340px;
-            min-width: 320px;
-            max-width: 420px;
-        }
-        .paquete-card {
-            border: 2px solid #a259ea;
-            border-radius: 12px;
-            padding: 18px 20px 10px 20px;
-            margin-bottom: 24px;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(80,0,120,0.06);
-            transition: box-shadow 0.2s;
-            position: relative;
-            overflow: hidden;
-        }
-        .paquete-card a.full-link {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            text-indent: -9999px;
-            background: transparent;
-            cursor: pointer;
-        }
-        .paquete-btn {
-            background: none;
-            border: none;
-            color: #240046;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            width: 100%;
-            text-align: left;
-            position: relative;
-            z-index: 3;
-        }
-        .paquete-btn:focus {
-            outline: 2px solid #a259ea;
-        }
-        .paquete-info {
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 3;
-        }
-        .paquete-card ul {
-            margin-left: 18px;
-            margin-bottom: 0;
-        }
-        .paquete-detalle {
-            display: none;
-            background: #f6f2ff;
-            border-radius: 8px;
-            padding: 10px 16px;
-            margin-top: 10px;
-            font-size: 0.98em;
-            position: relative;
-            z-index: 3;
-        }
-        .paquete-card.open .paquete-detalle {
-            display: block;
-        }
-        .precio {
-            color: #7c3aed;
-            font-weight: bold;
-            margin-bottom: 6px;
-        }
-        @media (max-width: 900px) {
-            .ofrecemos-flex {
-                flex-direction: column;
-                gap: 0;
-            }
-            .ofrecemos-col {
-                max-width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
-<nav>
-  <div class="container nav-container">
-    <a href="index.html" class="logo">
-      <span class="logo-circle">
-        <img src="img/img12.jpg" alt="Logo SCOM">
-      </span>
-      SCOM
-    </a>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html#inicio">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="mision-vision.html">Misión y Visión</a></li>
-                        <li><a href="justificacion.html">Justificación</a></li>
-                        <li><a href="objetivos.html">Objetivos</a></li>
-                        <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
-                        <li><a href="personal.html">Personal</a></li>
-                    </ul>
-                </li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <div class="burger"><div></div><div></div><div></div></div>
-        </div>
+    <nav>
+        <!-- ... Tu navbar como siempre ... -->
     </nav>
- 
-<div class="ofrecemos-header">
-  <img src="img/img20.png" alt="Decoración lateral" class="decoracion-lateral">
-  <h1 class="section-title">¿Qué ofrecemos?</h1>
-</div>
-           
+    <div class="container">
+        <div class="header-flex">
+            <img src="img/img20.png" alt="Decoración lateral" class="img-lateral">
+            <h1 class="section-title">¿Qué ofrecemos?</h1>
+        </div>
+        <div class="ofrecemos-flex">
             <div class="ofrecemos-col">
-                <h3><i class="fas fa-box-open"></i> Paquetes de Servicios</h3>
-                
-                <div class="paquete-card">
-                    <a href="contacto.html" class="full-link" aria-label="Ir a contacto"></a>
-                    <button class="paquete-btn"><i class="fas fa-shield-alt"></i> Paquete Básico</button>
-                    <div class="paquete-info">
-                        <span class="precio">$400.000 COP/mes</span>
-                        <ul>
-                            <li><i class="fas fa-virus"></i> Antivirus para equipos</li>
-                            <li><i class="fas fa-fire"></i> Firewall empresarial</li>
-                            <li><i class="fas fa-headset"></i> Asesoría remota</li>
-                        </ul>
-                    </div>
-                    <div class="paquete-detalle">
-                        <ul>
-                            <li>Soporte técnico estándar</li>
-                            <li>Actualizaciones automáticas</li>
-                            <li>Panel de administración web</li>
-                        </ul>
-                    </div>
+                <h3 class="card-subtitle"><i class="fas fa-box-open"></i> Paquetes de Servicios</h3>
+                <div class="card">
+                    <b>Paquete Básico</b>
+                    <div class="precio">$400.000 COP/mes</div>
+                    <ul>
+                        <li><i class="fas fa-virus"></i> Antivirus para equipos</li>
+                        <li><i class="fas fa-fire"></i> Firewall empresarial</li>
+                        <li><i class="fas fa-headset"></i> Asesoría remota</li>
+                    </ul>
                 </div>
-                
-                <div class="paquete-card">
-                    <a href="contacto.html" class="full-link" aria-label="Ir a contacto"></a>
-                    <button class="paquete-btn"><i class="fas fa-building"></i> Paquete Corporativo</button>
-                    <div class="paquete-info">
-                        <span class="precio">$850.000 COP/mes</span>
-                        <ul>
-                            <li>Todo lo del Paquete Básico</li>
-                            <li><i class="fas fa-eye"></i> Monitoreo 24/7</li>
-                            <li><i class="fas fa-search"></i> Análisis básico de vulnerabilidades</li>
-                        </ul>
-                    </div>
-                    <div class="paquete-detalle">
-                        <ul>
-                            <li>Reportes mensuales personalizados</li>
-                            <li>Soporte extendido</li>
-                            <li>Diagnósticos básicos trimestrales</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <b>Paquete Corporativo</b>
+                    <div class="precio">$850.000 COP/mes</div>
+                    <ul>
+                        <li>Todo lo del Paquete Básico</li>
+                        <li><i class="fas fa-eye"></i> Monitoreo 24/7</li>
+                        <li><i class="fas fa-search"></i> Análisis básico de vulnerabilidades</li>
+                    </ul>
                 </div>
-                
-                <div class="paquete-card">
-                    <a href="contacto.html" class="full-link" aria-label="Ir a contacto"></a>
-                    <button class="paquete-btn"><i class="fas fa-crown"></i> Paquete Avanzado</button>
-                    <div class="paquete-info">
-                        <span class="precio">$1.500.000 COP/mes</span>
-                        <ul>
-                            <li>Todo lo del Paquete Corporativo</li>
-                            <li><i class="fas fa-bolt"></i> Respuesta a incidentes</li>
-                            <li><i class="fas fa-chalkboard-teacher"></i> Capacitaciones</li>
-                            <li><i class="fas fa-file-signature"></i> Políticas personalizadas de seguridad</li>
-                        </ul>
-                    </div>
-                    <div class="paquete-detalle">
-                        <ul>
-                            <li>Capacitaciones avanzadas</li>
-                            <li>Políticas personalizadas de seguridad</li>
-                            <li>Descuentos exclusivos</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <b>Paquete Avanzado</b>
+                    <div class="precio">$1.500.000 COP/mes</div>
+                    <ul>
+                        <li>Todo lo del Paquete Corporativo</li>
+                        <li><i class="fas fa-bolt"></i> Respuesta a incidentes</li>
+                        <li><i class="fas fa-chalkboard-teacher"></i> Capacitaciones</li>
+                        <li><i class="fas fa-file-signature"></i> Políticas personalizadas de seguridad</li>
+                    </ul>
                 </div>
             </div>
-  
             <div class="ofrecemos-col">
-                <h3><i class="fas fa-id-card-alt"></i> Membresías Exclusivas</h3>
-                
-                <div class="paquete-card">
-                    <a href="contacto.html" class="full-link" aria-label="Ir a contacto"></a>
-                    <button class="paquete-btn"><i class="fas fa-star"></i> Membresía Esencial</button>
-                    <div class="paquete-info">
-                        <span class="precio">$2.100.000 COP</span>
-                        <ul>
-                            <li><i class="fas fa-tools"></i> Soporte técnico estándar</li>
-                            <li><i class="fas fa-bell"></i> Alertas preventivas básicas</li>
-                            <li><i class="fas fa-book"></i> Materiales informativos mensuales</li>
-                        </ul>
-                    </div>
-                    <div class="paquete-detalle">
-                        <ul>
-                            <li>Acceso a webinars mensuales</li>
-                            <li>Descuentos en servicios adicionales</li>
-                        </ul>
-                    </div>
+                <h3 class="card-subtitle"><i class="fas fa-id-card-alt"></i> Membresías Exclusivas</h3>
+                <div class="card">
+                    <b>Membresía Esencial</b>
+                    <div class="precio">$2.100.000 COP</div>
+                    <ul>
+                        <li><i class="fas fa-tools"></i> Soporte técnico estándar</li>
+                        <li><i class="fas fa-bell"></i> Alertas preventivas básicas</li>
+                        <li><i class="fas fa-book"></i> Materiales informativos mensuales</li>
+                    </ul>
                 </div>
-                
-                <div class="paquete-card">
-                    <a href="contacto.html" class="full-link" aria-label="Ir a contacto"></a>
-                    <button class="paquete-btn"><i class="fas fa-gem"></i> Membresía Avanzada</button>
-                    <div class="paquete-info">
-                        <span class="precio">$2.700.000 COP</span>
-                        <ul>
-                            <li>Todo lo de la Membresía Esencial</li>
-                            <li><i class="fas fa-file-alt"></i> Reportes mensuales personalizados</li>
-                            <li><i class="fas fa-headset"></i> Soporte extendido</li>
-                            <li><i class="fas fa-stethoscope"></i> Diagnósticos básicos trimestrales</li>
-                            <li><i class="fas fa-tags"></i> Descuentos exclusivos</li>
-                        </ul>
-                    </div>
-                    <div class="paquete-detalle">
-                        <ul>
-                            <li>Consultoría personalizada</li>
-                            <li>Acceso prioritario a soporte</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <b>Membresía Avanzada</b>
+                    <div class="precio">$2.700.000 COP</div>
+                    <ul>
+                        <li>Todo lo de la Membresía Esencial</li>
+                        <li><i class="fas fa-file-alt"></i> Reportes mensuales personalizados</li>
+                        <li><i class="fas fa-headset"></i> Soporte extendido</li>
+                        <li><i class="fas fa-stethoscope"></i> Diagnósticos básicos trimestrales</li>
+                        <li><i class="fas fa-tags"></i> Descuentos exclusivos</li>
+                    </ul>
                 </div>
-                
-                <div class="paquete-card">
-                    <a href="contacto.html" class="full-link" aria-label="Ir a contacto"></a>
-                    <button class="paquete-btn"><i class="fas fa-trophy"></i> Membresía Ejecutiva</button>
-                    <div class="paquete-info">
-                        <span class="precio">$3.350.000 COP</span>
-                        <ul>
-                            <li>Todo lo de la Membresía Avanzada</li>
-                            <li><i class="fas fa-user-tie"></i> Consultor personal asignado</li>
-                            <li><i class="fas fa-bolt"></i> Respuesta inmediata ante incidentes</li>
-                            <li><i class="fas fa-chalkboard-teacher"></i> Capacitaciones privadas</li>
-                            <li><i class="fas fa-calendar-check"></i> Acceso anticipado a lanzamientos y eventos</li>
-                        </ul>
-                    </div>
-                    <div class="paquete-detalle">
-                        <ul>
-                            <li>Consultoría ejecutiva</li>
-                            <li>Atención prioritaria</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <b>Membresía Ejecutiva</b>
+                    <div class="precio">$3.350.000 COP</div>
+                    <ul>
+                        <li>Todo lo de la Membresía Avanzada</li>
+                        <li><i class="fas fa-user-tie"></i> Consultor personal asignado</li>
+                        <li><i class="fas fa-bolt"></i> Respuesta inmediata ante incidentes</li>
+                        <li><i class="fas fa-chalkboard-teacher"></i> Capacitaciones privadas</li>
+                        <li><i class="fas fa-calendar-check"></i> Acceso anticipado a lanzamientos y eventos</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-
     <footer style="text-align:center; margin-top:40px; padding:20px 0; background:#f4f4f4;">
         <p>&copy; 2025 SCOM. Todos los derechos reservados.</p>
     </footer>
