@@ -672,3 +672,49 @@ footer {
 }
 
 background: url('img/Gif1.gif') center center/cover no-repeat;
+
+/* Separación universal para el contenido debajo de la navbar */
+.container {
+  padding-top: 80px !important; /* Ajusta según el alto de tu navbar */
+}
+
+/* Títulos principales */
+.section-title {
+  margin-top: 0 !important;
+  margin-bottom: 32px !important;
+  font-size: 2.5rem !important;
+  text-align: center !important;
+  color: #240046 !important;
+}
+
+/* Para bloques o cards debajo de títulos */
+.card {
+  background: #f6f2ff !important;
+  border-radius: 18px !important;
+  box-shadow: 0 2px 12px rgba(80,0,120,0.08) !important;
+  padding: 28px 32px !important;
+  margin-bottom: 32px !important;
+}
+
+/* Para subtítulos en cards */
+.card-subtitle {
+  font-size: 1.15em !important;
+  font-weight: bold !important;
+  margin-bottom: 12px !important;
+  color: #7c3aed !important;
+}
+
+/* Imágenes decorativas alineadas con el título */
+.header-flex {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 28px !important;
+  margin-bottom: 32px !important;
+}
+
+/* Para imágenes decorativas laterales */
+.img-lateral {
+  width: 120px !important;
+  height: auto !important;
+}
