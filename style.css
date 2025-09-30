@@ -615,7 +615,38 @@ footer {
   margin-bottom: 28px;
 }
 
+.justificacion-bg {
+  position: relative;
+  background: url('img/img14.jpeg') no-repeat center center;
+  background-size: cover;
+ 
+}
+.justificacion-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.75); 
+  
+  z-index: 1;
+}
+.justificacion-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 32px;
+}
 
+
+.objetivo-general-card, .objetivos-especificos-card {
+  background: #f6f2ff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(80,0,120,0.08);
+  max-width: 800px;
+  margin: 0 auto 32px auto;
+  padding: 24px 32px;
+}
+.objetivos-especificos-card h3 {
+  margin-bottom: 16px;
+}
 
 
 background: url('img/Gif1.gif') center center/cover no-repeat;
