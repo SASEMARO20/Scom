@@ -575,27 +575,27 @@ footer {
 
 .ofrecemos-header {
   display: flex;
-  align-items: center; /* Centra verticalmente */
-  gap: 24px;           /* Separación entre imagen y título */
-  margin-bottom: 32px; /* Espacio debajo del header */
-  margin-top: 40px;    /* Espacio arriba del header */
+  align-items: center; 
+  gap: 24px;           
+  margin-bottom: 32px; 
+  margin-top: 40px;    
 }
 
 .decoracion-lateral {
-  width: 120px;        /* Tamaño ajustable */
+  width: 120px;        
   height: auto;
 }
 .section-title {
-  margin: 0;           /* Elimina margen superior */
+  margin: 0;        
 }
 
 .section-title {
-  margin-top: 40px;   /* Prueba con 40px, puedes ajustar */
+  margin-top: 40px;   
   margin-bottom: 16px;
 }
 
 .container {
-  padding-top: 80px; /* O el valor que prefieras */
+  padding-top: 80px; 
 }
 
 .seccion-header {
@@ -610,9 +610,10 @@ footer {
   height: auto;
 }
 
-
-
-
+.contacto-header {
+  margin-top: 60px;
+  margin-bottom: 28px;
+}
 
 
 
