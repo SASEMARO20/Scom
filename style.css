@@ -648,5 +648,27 @@ footer {
   margin-bottom: 16px;
 }
 
+.section-title {
+  margin-top: 60px;
+  margin-bottom: 18px;
+}
+.container {
+  padding-top: 40px;
+}
+
+.ofrecemos-header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 80px;
+  margin-bottom: 32px;
+}
+.decoracion-lateral {
+  width: 140px;
+  height: auto;
+}
+.section-title {
+  margin: 0;
+}
 
 background: url('img/Gif1.gif') center center/cover no-repeat;
