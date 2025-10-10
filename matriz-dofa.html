@@ -6,18 +6,206 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #faf7ff;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #faf7ff;
+        }
+        .navbar-space {
+            height: 100px;
+        }
+        nav {
+            width: 100%;
+            background: #240046;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 2em;
+            color: #fff;
+            text-decoration: none;
+            gap: 10px;
+        }
+        .logo-circle {
+            height: 77px;
+            width: 77px;
+            border-radius: 50%;
+            border: 2px solid #a259ea;
             background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .logo-circle img {
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            border: 2px solid #a259ea;
+            background: #fff;
+            object-fit: cover;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.08em;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .nav-links a:hover, .nav-links .active {
+            background: #a259ea;
+            color: #fff;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background: #240046;
+            min-width: 180px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+            animation: fadeInDropdown 0.25s;
+        }
+        @keyframes fadeInDropdown {
+            from { opacity: 0; transform: translateY(-10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li {
+            margin: 0;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 18px;
+            color: #fff;
+            border-radius: 0;
+        }
+        .dropdown-menu a:hover {
+            background: #a259ea;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+                padding: 10px 16px;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                background: #240046;
+                margin-top: 10px;
+                gap: 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links a {
+                width: 100%;
+                display: block;
+                padding: 14px 0 14px 18px;
+            }
+            .burger {
+                display: flex;
+                margin-left: auto;
+            }
+        }
+       
+        .dofa-flex {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 24px;
+            max-width: 1400px;
+            margin: 60px auto 40px auto;
+            width: 100%;
+        }
+        .dofa-img-col {
+    flex: 0 0 220px;
+    display: flex;
+    align-items: flex-start;
+}
+.dofa-img-col:first-child {
+    justify-content: flex-start;
+}
+.dofa-img-col:last-child {
+    justify-content: flex-end;
+}
+.dofa-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(80,0,120,0.13);
+    border: 3px solid #a259ea;
+    background: #fff;
+    margin-top: 150px;
         }
         .dofa-container {
-            max-width: 1100px;
-            margin: 60px auto 40px auto;
+            flex: 1 1 0;
             background: #f8f8ff;
             border-radius: 14px;
             box-shadow: 0 2px 12px rgba(80,0,120,0.09);
             padding: 36px 18px 28px 18px;
+            min-width: 0;
         }
         .dofa-title {
             text-align: center;
@@ -60,73 +248,169 @@
         .dofa-table ul li {
             margin-bottom: 7px;
         }
-        .dofa-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 18px;
-            gap: 10px;
-        }
-        .dofa-logo-img {
-            height: 60px;
-            background: #fff;
-            border-radius: 10px;
-            padding: 6px 10px;
-            box-shadow: 0 2px 8px rgba(80,0,120,0.07);
-            display: inline-block;
-        }
-        .dofa-logo-text {
-            font-size: 1.5em;
-            color: #6c3fc5;
-            font-weight: bold;
-            display: inline-block;
+        @media (max-width: 1200px) {
+            .dofa-flex {
+                gap: 10px;
+            }
+            .dofa-img-col {
+                flex-basis: 120px;
+            }
+            .dofa-img {
+                width: 110px;
+                height: 110px;
+            }
         }
         @media (max-width: 900px) {
-            .dofa-container { padding: 16px 2vw; }
+            .dofa-flex {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+            .dofa-img-col {
+                flex-basis: auto;
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .dofa-container {
+                padding: 16px 2vw;
+            }
             .dofa-table th, .dofa-table td { font-size: 0.97em; padding: 10px 5px; }
-            .dofa-logo-img { height: 40px; }
         }
         @media (max-width: 600px) {
             .dofa-title { font-size: 1.3em; }
             .dofa-table th, .dofa-table td { font-size: 0.93em; }
+            .dofa-img { width: 80px; height: 80px; }
+        }
+        /* Footer compacto */
+        footer {
+            background: #240046;
+            color: #fff;
+            padding: 24px 0 0 0;
+            width: 100%;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            align-items: flex-start;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.08rem;
+            position: relative;
+            padding-bottom: 6px;
+        }
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 36px;
+            height: 2px;
+            background-color: #a259ea;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            font-size: 0.98em;
+        }
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #a259ea;
+            padding-left: 8px;
+        }
+        .copyright {
+            text-align: center;
+            padding: 12px 0 8px 0;
+            margin-top: 10px;
+            border-top: 1px solid #a259ea;
+            font-size: 0.98em;
+            color: #fff;
+            background: #240046;
+        }
+        #instagram-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+        }
+        #instagram-float a {
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(80,0,120,0.13);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.2s;
+            color: #e1306c;
+            font-size: 60px;
+            text-decoration: none;
+        }
+        #instagram-float a:hover {
+            box-shadow: 0 4px 16px rgba(162,89,234,0.18);
+            background: #f8e1f4;
         }
     </style>
 </head>
 <body>
+
 <nav>
-  <div class="container nav-container">
+  <div class="nav-container">
     <a href="index.html" class="logo">
       <span class="logo-circle">
         <img src="img/img12.jpg" alt="Logo SCOM">
       </span>
       SCOM
     </a>
-            <ul class="nav-links">
-                <li><a href="index.html#inicio">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="mision-vision.html">Misión y Visión</a></li>
-                        <li><a href="justificacion.html">Justificación</a></li>
-                        <li><a href="objetivos.html">Objetivos</a></li>
-                        <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
-                        <li><a href="personal.html">Personal</a></li>
-                    </ul>
-                </li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <div class="burger"><div></div><div></div><div></div></div>
-        </div>
-    </nav>
+    <ul class="nav-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li class="dropdown">
+        <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="mision-vision.html">Misión y Visión</a></li>
+          <li><a href="justificacion.html">Justificación</a></li>
+          <li><a href="objetivos.html">Objetivos</a></li>
+          <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
+          <li><a href="personal.html">Personal</a></li>
+        </ul>
+      </li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="burger"><div></div><div></div><div></div></div>
+  </div>
+</nav>
+<div class="navbar-space"></div>
 
+
+<div class="dofa-flex">
+    <div class="dofa-img-col">
+        <img src="img/img24.jpeg" alt="Imagen DOFA 1" class="dofa-img">
+    </div>
     <div class="dofa-container">
-
         <div class="dofa-title">Matriz DOFA</div>
         <table class="dofa-table">
             <tr>
@@ -213,5 +497,54 @@
             </tr>
         </table>
     </div>
+    <div class="dofa-img-col">
+        <img src="img/img21.jpeg" alt="Imagen DOFA 2" class="dofa-img">
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>SCOM</h4>
+            <p style="font-size: 0.98em; margin-bottom: 10px;">
+                Tu socio de confianza en seguridad informática.<br>
+                Protegiendo el futuro digital de empresas y profesionales.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>Servicios</h4>
+            <ul class="footer-links">
+                <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
+                <li><a href="#servicios">Seguridad en la Nube</a></li>
+                <li><a href="#servicios">Desarrollo Seguro</a></li>
+                <li><a href="#servicios">Auditoría de seguridad</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div class="copyright">
+        <p style="margin:0;">&copy; 2025 SCOM - Seguridad Informática. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<div id="instagram-float">
+    <a href="https://instagram.com/scomciberseguridad" target="_blank" title="Instagram SCOM">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+<a id="boton-secreto" href="financiero.html" title="Módulo financiero">
+    <i class="fas fa-coins"></i>
+</a>
+<script>
+    setTimeout(function() {
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        if (burger && navLinks) {
+            burger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                burger.classList.toggle('active');
+            });
+        }
+    }, 300);
+</script>
 </body>
 </html>
