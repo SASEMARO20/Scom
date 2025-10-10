@@ -6,6 +6,280 @@
     <title>SCOM - Seguridad Informática</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+    
+        nav {
+            width: 100%;
+            background: #240046;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 80px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 2em;
+            color: #fff;
+            text-decoration: none;
+            gap: 10px;
+        }
+
+        .logo-circle {
+             height: 77px;
+             width: 77px;
+             border-radius: 50%;
+             border: 2px solid #a259ea;
+             background: #fff;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             overflow: hidden;
+}
+        .logo-circle img {
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            border: 2px solid #a259ea;
+            background: #fff;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.08em;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .nav-links a:hover, .nav-links .active {
+            background: #a259ea;
+            color: #fff;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background: #240046;
+            min-width: 180px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li {
+            margin: 0;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 18px;
+            color: #fff;
+            border-radius: 0;
+        }
+        .dropdown-menu a:hover {
+            background: #a259ea;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+                padding: 10px 16px;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                background: #240046;
+                margin-top: 10px;
+                gap: 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links a {
+                width: 100%;
+                display: block;
+                padding: 14px 0 14px 18px;
+            }
+            .burger {
+                display: flex;
+                margin-left: auto;
+            }
+        }
+
+        
+        .hero {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('img/img19.jpeg') center center/cover no-repeat;
+            z-index: 1;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255,255,255,0.85);
+            padding: 40px 60px;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            max-width: 700px;
+        }
+
+        
+        .ventajas-section {
+            background: #faf7ff;
+            padding: 60px 0 80px 0;
+        }
+        .ventajas-carousel {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .ventajas-list {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(.77,0,.18,1);
+        }
+        .ventaja-item {
+            min-width: 100%;
+            text-align: center;
+            font-size: 1.5em;
+            color: #240046;
+            padding: 32px 0;
+            font-weight: bold;
+            opacity: 0.92;
+        }
+        .ventajas-controls {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .ventajas-controls button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: #a259ea;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .ventajas-controls button:hover {
+            background: #240046;
+        }
+
+        
+        footer {
+            background: #240046;
+            color: #fff;
+            padding: 40px 0 0 0;
+            margin-top: 60px;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #a259ea;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #a259ea;
+            padding-left: 10px;
+        }
+        .copyright {
+            text-align: center;
+            padding: 24px 0 16px 0;
+            margin-top: 30px;
+            border-top: 1px solid #a259ea;
+            font-size: 1em;
+            color: #fff;
+            background: #240046;
+        }
+    </style>
 </head>
 <body>
 
@@ -17,29 +291,29 @@
       </span>
       SCOM
     </a>
-            <ul class="nav-links">
-                <li><a href="index.html#inicio">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="mision-vision.html">Misión y Visión</a></li>
-                        <li><a href="justificacion.html">Justificación</a></li>
-                        <li><a href="objetivos.html">Objetivos</a></li>
-                        <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
-                        <li><a href="personal.html">Personal</a></li>
-                    </ul>
-                </li>
-                <li><a href="contacto.html">Contacto</a></li>
+    <ul class="nav-links">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li class="dropdown">
+            <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
             </ul>
-            <div class="burger"><div></div><div></div><div></div></div>
-        </div>
-    </nav>
+        </li>
+        <li class="dropdown">
+            <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+                <li><a href="justificacion.html">Justificación</a></li>
+                <li><a href="objetivos.html">Objetivos</a></li>
+                <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
+                <li><a href="personal.html">Personal</a></li>
+            </ul>
+        </li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="burger"><div></div><div></div><div></div></div>
+  </div>
+</nav>
 
 <section class="hero section-purple" id="inicio">
     <div class="hero-content">
@@ -74,80 +348,73 @@
     </div>
 </section>
 
-    <section class="services" id="servicios">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-search"></i></div>
-                    <h3>Auditoría de Seguridad</h3>
-                    <p>Evaluamos tu infraestructura para identificar vulnerabilidades y recomendar mejoras de seguridad.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Desarrollo Seguro</h3>
-                    <p>Implementamos prácticas de programación segura y auditorías de código para prevenir vulnerabilidades.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-cloud"></i></div>
-                    <h3>Seguridad en la Nube</h3>
-                    <p>Protegemos tus datos y aplicaciones en la nube con las más avanzadas tecnologías.</p>
-                </div>
+<section class="services" id="servicios">
+    <div class="container">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-search"></i></div>
+                <h3>Auditoría de Seguridad</h3>
+                <p>Evaluamos tu infraestructura para identificar vulnerabilidades y recomendar mejoras de seguridad.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Desarrollo Seguro</h3>
+                <p>Implementamos prácticas de programación segura y auditorías de código para prevenir vulnerabilidades.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Seguridad en la Nube</h3>
+                <p>Protegemos tus datos y aplicaciones en la nube con las más avanzadas tecnologías.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="advantaje" id="Ventaja">
-        <div class="container">
-            <h2 class="section-title">Ventajas</h2>
-            <div class="clients-carousel">
-                <div class="carousel-container">
-                   
-                    <div class="client-logo">Acompañamiento Constante</div>
-                    <div class="client-logo">Optimización</div>
-                    <div class="client-logo">Protección de datos</div>
-                    <div class="client-logo">Solución Adaptable</div>
-                    <div class="client-logo">Equipo de Expertos</div>
-                    
-                    <div class="client-logo">Acompañamiento Constante</div>
-                    <div class="client-logo">Optimización</div>
-                    <div class="client-logo">Protección de datos</div>
-                    <div class="client-logo">Solución Adaptable</div>
-                    <div class="client-logo">Equipo de Expertos</div>
-
-
-                </div>
+<section class="ventajas-section" id="ventajas">
+    <div class="container">
+        <h2 class="section-title">Ventajas</h2>
+        <div class="ventajas-carousel">
+            <div class="ventajas-list" id="ventajasList">
+                <div class="ventaja-item">Acompañamiento Constante</div>
+                <div class="ventaja-item">Optimización</div>
+                <div class="ventaja-item">Protección de datos</div>
+                <div class="ventaja-item">Solución Adaptable</div>
+                <div class="ventaja-item">Equipo de Expertos</div>
+            </div>
+            <div class="ventajas-controls">
+                <button id="prevVentaja" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextVentaja" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-col">
-                <h4>SCOM</h4>
-                <p>Tu socio de confianza en seguridad informática. Protegiendo el futuro digital de empresas y profesionales.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Servicios</h4>
-                <ul class="footer-links">
-                    <li><a href="#servicios">Seguridad en la Nube</a></li>
-                    <li><a href="#servicios">Desarrollo Seguro</a></li>
-                    <li><a href="#servicios">Auditoría de seguridad</a></li>
-                </ul>
-            </div>        
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>SCOM</h4>
+            <p>Tu socio de confianza en seguridad informática. Protegiendo el futuro digital de empresas y profesionales.</p>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 SCOM - Seguridad Informática. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+        <div class="footer-col">
+            <h4>Servicios</h4>
+            <ul class="footer-links">
+                <li><a href="#servicios">Seguridad en la Nube</a></li>
+                <li><a href="#servicios">Desarrollo Seguro</a></li>
+                <li><a href="#servicios">Auditoría de seguridad</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 SCOM - Seguridad Informática. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
-  
-    <a id="boton-secreto" href="financiero.html" title="Módulo financiero">
-        <i class="fas fa-coins"></i>
-    </a>
+<a id="boton-secreto" href="financiero.html" title="Módulo financiero">
+    <i class="fas fa-coins"></i>
+</a>
 
-    <a href="https://instagram.com/scomciberseguridad" target="_blank" title="Instagram SCOM" 
+<a href="https://instagram.com/scomciberseguridad" target="_blank" title="Instagram SCOM" 
    style="
       position: fixed;
       bottom: 24px;
@@ -162,102 +429,74 @@
       justify-content: center;
       transition: box-shadow 0.2s;
       color: #e1306c;
-      font-size: 60px;
+      font-size: 36px;
       text-decoration: none;
    ">
     <i class="fab fa-instagram"></i>
 </a>
 
-    <script>
-    
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-   
-        const burger = document.querySelector('.burger');
-        const navLinks = document.querySelector('.nav-links');
-
-        burger.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            burger.classList.toggle('active');
-        });
-
-   
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-       
-                    navLinks.classList.remove('active');
-                    burger.classList.remove('active');
-                }
-            });
-        });
-
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-        
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple validation
-            if (!name || !email || !message) {
-                alert('Por favor, completa todos los campos obligatorios.');
-                return;
-            }
-            
-           
-            alert('¡Gracias por contactarnos! Te responderemos pronto.');
-            
-         
-            this.reset();
-        });
-
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-      
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
-    </script>
-    <script>
-document.querySelectorAll('.paquete-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const parent = btn.parentElement;
-        parent.classList.toggle('open');
+<script>
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        burger.classList.toggle('active');
     });
-});
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                navLinks.classList.remove('active');
+                burger.classList.remove('active');
+            }
+        });
+    });
+
+    const ventajasList = document.getElementById('ventajasList');
+    const ventajas = document.querySelectorAll('.ventaja-item');
+    const prevBtn = document.getElementById('prevVentaja');
+    const nextBtn = document.getElementById('nextVentaja');
+    let ventajaIndex = 0;
+    function showVentaja(idx) {
+        ventajasList.style.transform = `translateX(-${idx * 100}%)`;
+    }
+    prevBtn.addEventListener('click', () => {
+        ventajaIndex = (ventajaIndex - 1 + ventajas.length) % ventajas.length;
+        showVentaja(ventajaIndex);
+    });
+    nextBtn.addEventListener('click', () => {
+        ventajaIndex = (ventajaIndex + 1) % ventajas.length;
+        showVentaja(ventajaIndex);
+    });
+    setInterval(() => {
+        ventajaIndex = (ventajaIndex + 1) % ventajas.length;
+        showVentaja(ventajaIndex);
+    }, 4000);
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+    });
 </script>
 </body>
 </html>
