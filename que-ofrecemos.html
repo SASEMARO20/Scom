@@ -5,8 +5,343 @@
     <title>¿Qué ofrecemos? | SCOM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #fff;
+        }
+       
+        nav {
+            width: 100%;
+            background: #240046;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 80px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 2em;
+            color: #fff;
+            text-decoration: none;
+            gap: 10px;
+        }
+
+        .logo-circle {
+             height: 77px;
+             width: 77px;
+             border-radius: 50%;
+             border: 2px solid #a259ea;
+             background: #fff;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             overflow: hidden;
+}
+        .logo-circle img {
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            border: 2px solid #a259ea;
+            background: #fff;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.08em;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .nav-links a:hover, .nav-links .active {
+            background: #a259ea;
+            color: #fff;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background: #a259ea;
+            min-width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(120,0,180,0.18);
+            z-index: 999;
+            padding: 10px 0;
+            border: none;
+            animation: fadeInDropdown 0.25s;
+        }
+        @keyframes fadeInDropdown {
+            from { opacity: 0; transform: translateY(-10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li {
+            margin: 0;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 24px;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: background 0.2s, color 0.2s;
+        }
+        .dropdown-menu a:hover {
+            background: #fff;
+            color: #a259ea;
+        }
+        .dropdown .fas.fa-caret-down {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        .dropdown:hover .fas.fa-caret-down {
+            transform: rotate(180deg);
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+                padding: 10px 16px;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                background: #240046;
+                margin-top: 10px;
+                gap: 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links a {
+                width: 100%;
+                display: block;
+                padding: 14px 0 14px 18px;
+            }
+            .burger {
+                display: flex;
+                margin-left: auto;
+            }
+            .dropdown-menu {
+                left: 0;
+                min-width: 180px;
+            }
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 130px 24px 40px 24px; 
+            display: flex;
+            gap: 0;
+            align-items: stretch;
+            min-height: 80vh;
+        }
+        .ofrecemos-img-lateral {
+            flex: 0 0 350px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            
+        }
+        .ofrecemos-img-lateral img {
+            width: 300px;
+            max-width: 95vw;
+            min-width: 180px;
+            border-radius: 18px;
+            box-shadow: 0 2px 24px rgba(120,0,180,0.12);
+            margin-left: -110px;
+            margin-right: 0px;
+            margin-top: 0px;
+            object-fit: contain;
+        }
+        .ofrecemos-content {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .section-title {
+            margin-top: 0;
+            margin-bottom: 32px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #240046;
+            font-weight: bold;
+            position: relative;
+            width: 100%;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #7c3aed;
+            margin: 18px auto 0 auto;
+            border-radius: 2px;
+        }
+        .ofrecemos-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        .ofrecemos-col {
+            flex: 1 1 340px;
+            min-width: 320px;
+            max-width: 420px;
+        }
+        .ofrecemos-title {
+            font-size: 1.18em;
+            font-weight: bold;
+            color: #7c3aed;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+       
+        footer {
+            background: #240046;
+            color: #fff;
+            padding: 40px 0 0 0;
+            margin-top: 60px;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #a259ea;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #a259ea;
+            padding-left: 10px;
+        }
+        .copyright {
+            text-align: center;
+            padding: 24px 0 16px 0;
+            margin-top: 30px;
+            border-top: 1px solid #a259ea;
+            font-size: 1em;
+            color: #fff;
+            background: #240046;
+        }
+        
+        @media (max-width: 1200px) {
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+                padding: 120px 8px 40px 8px;
+            }
+            .ofrecemos-img-lateral {
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 18px;
+            }
+            .ofrecemos-img-lateral img {
+                margin: 0 auto 18px auto;
+                width: 220px;
+            }
+        }
+        @media (max-width: 700px) {
+            .main-content {
+                padding: 100px 4px 20px 4px;
+            }
+            .ofrecemos-img-lateral img {
+                width: 120px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+
 <nav>
   <div class="container nav-container">
     <a href="index.html" class="logo">
@@ -38,81 +373,136 @@
     <div class="burger"><div></div><div></div><div></div></div>
   </div>
 </nav>
-<div class="container">
-  <div class="header-flex">
-    <img src="img/img20.png" alt="Decoración lateral" class="img-lateral">
-    <h1 class="section-title">¿Qué ofrecemos?</h1>
+
+<div class="main-content">
+  <div class="ofrecemos-img-lateral">
+    <img src="img/img20.png" alt="Decoración lateral">
   </div>
-  <div class="ofrecemos-flex">
-    <div class="ofrecemos-col">
-      <h3 class="ofrecemos-title"><i class="fas fa-box-open"></i> Paquetes de Servicios</h3>
-      <div class="paquete-card">
-        <b><i class="fas fa-shield-alt"></i> Paquete Básico</b>
-        <div class="precio">$400.000 COP/mes</div>
-        <ul>
-          <li><i class="fas fa-virus"></i> Antivirus para equipos</li>
-          <li><i class="fas fa-fire"></i> Firewall empresarial</li>
-          <li><i class="fas fa-headset"></i> Asesoría remota</li>
-        </ul>
+  <div class="ofrecemos-content">
+    <h1 class="section-title">¿Qué ofrecemos?</h1>
+    <div class="ofrecemos-flex">
+      <div class="ofrecemos-col">
+        <h3 class="ofrecemos-title"><i class="fas fa-box-open"></i> Paquetes de Servicios</h3>
+        <div class="paquete-card">
+          <b><i class="fas fa-shield-alt"></i> Paquete Básico</b>
+          <div class="precio">$400.000 COP/mes</div>
+          <ul>
+            <li><i class="fas fa-virus"></i> Antivirus para equipos</li>
+            <li><i class="fas fa-fire"></i> Firewall empresarial</li>
+            <li><i class="fas fa-headset"></i> Asesoría remota</li>
+          </ul>
+        </div>
+        <div class="paquete-card">
+          <b><i class="fas fa-building"></i> Paquete Corporativo</b>
+          <div class="precio">$850.000 COP/mes</div>
+          <ul>
+            <li>Todo lo del Paquete Básico</li>
+            <li><i class="fas fa-eye"></i> Monitoreo 24/7</li>
+            <li><i class="fas fa-search"></i> Análisis básico de vulnerabilidades</li>
+          </ul>
+        </div>
+        <div class="paquete-card">
+          <b><i class="fas fa-crown"></i> Paquete Avanzado</b>
+          <div class="precio">$1.500.000 COP/mes</div>
+          <ul>
+            <li>Todo lo del Paquete Corporativo</li>
+            <li><i class="fas fa-bolt"></i> Respuesta a incidentes</li>
+            <li><i class="fas fa-chalkboard-teacher"></i> Capacitaciones</li>
+            <li><i class="fas fa-file-signature"></i> Políticas personalizadas de seguridad</li>
+          </ul>
+        </div>
       </div>
-      <div class="paquete-card">
-        <b><i class="fas fa-building"></i> Paquete Corporativo</b>
-        <div class="precio">$850.000 COP/mes</div>
-        <ul>
-          <li>Todo lo del Paquete Básico</li>
-          <li><i class="fas fa-eye"></i> Monitoreo 24/7</li>
-          <li><i class="fas fa-search"></i> Análisis básico de vulnerabilidades</li>
-        </ul>
-      </div>
-      <div class="paquete-card">
-        <b><i class="fas fa-crown"></i> Paquete Avanzado</b>
-        <div class="precio">$1.500.000 COP/mes</div>
-        <ul>
-          <li>Todo lo del Paquete Corporativo</li>
-          <li><i class="fas fa-bolt"></i> Respuesta a incidentes</li>
-          <li><i class="fas fa-chalkboard-teacher"></i> Capacitaciones</li>
-          <li><i class="fas fa-file-signature"></i> Políticas personalizadas de seguridad</li>
-        </ul>
-      </div>
-    </div>
-    <div class="ofrecemos-col">
-      <h3 class="ofrecemos-title"><i class="fas fa-id-card-alt"></i> Membresías Exclusivas</h3>
-      <div class="paquete-card">
-        <b><i class="fas fa-star"></i> Membresía Esencial</b>
-        <div class="precio">$2.100.000 COP</div>
-        <ul>
-          <li><i class="fas fa-tools"></i> Soporte técnico estándar</li>
-          <li><i class="fas fa-bell"></i> Alertas preventivas básicas</li>
-          <li><i class="fas fa-book"></i> Materiales informativos mensuales</li>
-        </ul>
-      </div>
-      <div class="paquete-card">
-        <b><i class="fas fa-gem"></i> Membresía Avanzada</b>
-        <div class="precio">$2.700.000 COP</div>
-        <ul>
-          <li>Todo lo de la Membresía Esencial</li>
-          <li><i class="fas fa-file-alt"></i> Reportes mensuales personalizados</li>
-          <li><i class="fas fa-headset"></i> Soporte extendido</li>
-          <li><i class="fas fa-stethoscope"></i> Diagnósticos básicos trimestrales</li>
-          <li><i class="fas fa-tags"></i> Descuentos exclusivos</li>
-        </ul>
-      </div>
-      <div class="paquete-card">
-        <b><i class="fas fa-trophy"></i> Membresía Ejecutiva</b>
-        <div class="precio">$3.350.000 COP</div>
-        <ul>
-          <li>Todo lo de la Membresía Avanzada</li>
-          <li><i class="fas fa-user-tie"></i> Consultor personal asignado</li>
-          <li><i class="fas fa-bolt"></i> Respuesta inmediata ante incidentes</li>
-          <li><i class="fas fa-chalkboard-teacher"></i> Capacitaciones privadas</li>
-          <li><i class="fas fa-calendar-check"></i> Acceso anticipado a lanzamientos y eventos</li>
-        </ul>
+      <div class="ofrecemos-col">
+        <h3 class="ofrecemos-title"><i class="fas fa-id-card-alt"></i> Membresías Exclusivas</h3>
+        <div class="paquete-card">
+          <b><i class="fas fa-star"></i> Membresía Esencial</b>
+          <div class="precio">$2.100.000 COP</div>
+          <ul>
+            <li><i class="fas fa-tools"></i> Soporte técnico estándar</li>
+            <li><i class="fas fa-bell"></i> Alertas preventivas básicas</li>
+            <li><i class="fas fa-book"></i> Materiales informativos mensuales</li>
+          </ul>
+        </div>
+        <div class="paquete-card">
+          <b><i class="fas fa-gem"></i> Membresía Avanzada</b>
+          <div class="precio">$2.700.000 COP</div>
+          <ul>
+            <li>Todo lo de la Membresía Esencial</li>
+            <li><i class="fas fa-file-alt"></i> Reportes mensuales personalizados</li>
+            <li><i class="fas fa-headset"></i> Soporte extendido</li>
+            <li><i class="fas fa-stethoscope"></i> Diagnósticos básicos trimestrales</li>
+            <li><i class="fas fa-tags"></i> Descuentos exclusivos</li>
+          </ul>
+        </div>
+        <div class="paquete-card">
+          <b><i class="fas fa-trophy"></i> Membresía Ejecutiva</b>
+          <div class="precio">$3.350.000 COP</div>
+          <ul>
+            <li>Todo lo de la Membresía Avanzada</li>
+            <li><i class="fas fa-user-tie"></i> Consultor personal asignado</li>
+            <li><i class="fas fa-bolt"></i> Respuesta inmediata ante incidentes</li>
+            <li><i class="fas fa-chalkboard-teacher"></i> Capacitaciones privadas</li>
+            <li><i class="fas fa-calendar-check"></i> Acceso anticipado a lanzamientos y eventos</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<footer style="text-align:center; margin-top:40px; padding:20px 0; background:#f4f4f4;">
-  <p>&copy; 2025 SCOM. Todos los derechos reservados.</p>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>SCOM</h4>
+            <p>Tu socio de confianza en seguridad informática. Protegiendo el futuro digital de empresas y profesionales.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Servicios</h4>
+            <ul class="footer-links">
+                <li><a href="#servicios">Seguridad en la Nube</a></li>
+                <li><a href="#servicios">Desarrollo Seguro</a></li>
+                <li><a href="#servicios">Auditoría de seguridad</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 SCOM - Seguridad Informática. Todos los derechos reservados.</p>
+    </div>
 </footer>
+
+<a id="boton-secreto" href="financiero.html" title="Módulo financiero">
+    <i class="fas fa-coins"></i>
+</a>
+
+<a href="https://instagram.com/scomciberseguridad" target="_blank" title="Instagram SCOM" 
+   style="
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(80,0,120,0.13);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.2s;
+      color: #e1306c;
+      font-size: 36px;
+      text-decoration: none;
+   ">
+    <i class="fab fa-instagram"></i>
+</a>
+
+<script>
+ 
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        burger.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
