@@ -6,81 +6,407 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        .section-title {
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: transparent;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+        }
+        .background-blur {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: url('img/img26.jpeg') center center/cover no-repeat;
+            filter: brightness(0.85);
+        }
+        .navbar-space {
+            height: 100px;
+        }
+        nav {
+            width: 100%;
+            background: #240046;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 2em;
+            color: #fff;
+            text-decoration: none;
+            gap: 10px;
+        }
+        .logo-circle {
+            height: 77px;
+            width: 77px;
+            border-radius: 50%;
+            border: 2px solid #a259ea;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .logo-circle img {
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            border: 2px solid #a259ea;
+            background: #fff;
+            object-fit: cover;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.08em;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .nav-links a:hover, .nav-links .active {
+            background: #a259ea;
+            color: #fff;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background: #240046;
+            min-width: 180px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+            animation: fadeInDropdown 0.25s;
+        }
+        @keyframes fadeInDropdown {
+            from { opacity: 0; transform: translateY(-10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li {
+            margin: 0;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 18px;
+            color: #fff;
+            border-radius: 0;
+        }
+        .dropdown-menu a:hover {
+            background: #a259ea;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+                padding: 10px 16px;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                background: #240046;
+                margin-top: 10px;
+                gap: 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links a {
+                width: 100%;
+                display: block;
+                padding: 14px 0 14px 18px;
+            }
+            .burger {
+                display: flex;
+                margin-left: auto;
+            }
+        }
+ main {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+        }
+        .titulo-seccion {
+            margin-top: 120px;
+            margin-bottom: 16px;
+            color: #240046;
+            font-size: 2.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
             text-align: center;
-            margin-bottom: 40px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            padding: 12px 24px 6px 24px;
+            max-width: 500px;
+            box-shadow: 0 2px 16px rgba(120,0,180,0.10);
         }
-        .info-block {
-            background: #f8f8ff;
-            border-radius: 10px;
-            padding: 30px 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(80,0,120,0.07);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        .contenido-seccion {
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            padding: 18px 24px 18px 24px;
+            max-width: 500px;
+            margin-bottom: 32px;
+            color: #240046;
+            font-size: 1.08rem;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(120,0,180,0.10);
+            font-weight: 500;
         }
-        .info-block h2 {
-            color: #6c3fc5;
-            margin-top: 0;
+        .separador {
+            height: 28px;
         }
-        @media (max-width: 600px) {
-            .info-block {
-                padding: 18px 8px;
+    
+        footer {
+            background: #240046;
+            color: #fff;
+            padding: 24px 0 0 0;
+            width: 100%;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            align-items: flex-start;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.08rem;
+            position: relative;
+            padding-bottom: 6px;
+        }
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 36px;
+            height: 2px;
+            background-color: #a259ea;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            font-size: 0.98em;
+        }
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #a259ea;
+            padding-left: 8px;
+        }
+        .copyright {
+            text-align: center;
+            padding: 12px 0 8px 0;
+            margin-top: 10px;
+            border-top: 1px solid #a259ea;
+            font-size: 0.98em;
+            color: #fff;
+            background: #240046;
+        }
+        #instagram-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+        }
+        #instagram-float a {
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(80,0,120,0.13);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.2s;
+            color: #e1306c;
+            font-size: 60px;
+            text-decoration: none;
+        }
+        #instagram-float a:hover {
+            box-shadow: 0 4px 16px rgba(162,89,234,0.18);
+            background: #f8e1f4;
+        }
+       @media (max-width: 700px) {
+            .titulo-seccion, .contenido-seccion {
+                padding: 10px 4px;
+                max-width: 98vw;
+                font-size: 1em;
+            }
+            .titulo-seccion {
+                font-size: 1.3rem;
+                margin-top: 110px;
+            }
+            .footer-container {
+                padding: 0 8px;
             }
         }
     </style>
 </head>
 <body>
+<div class="background-blur"></div>
+
 <nav>
-  <div class="container nav-container">
+  <div class="nav-container">
     <a href="index.html" class="logo">
       <span class="logo-circle">
         <img src="img/img12.jpg" alt="Logo SCOM">
       </span>
       SCOM
     </a>
-            <ul class="nav-links">
-                <li><a href="index.html#inicio">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="mision-vision.html">Misión y Visión</a></li>
-                        <li><a href="justificacion.html">Justificación</a></li>
-                        <li><a href="objetivos.html">Objetivos</a></li>
-                        <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
-                        <li><a href="personal.html">Personal</a></li>
-                    </ul>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </li>
-            </ul>
-            <div class="burger"><div></div><div></div><div></div></div>
-        </div>
-    </nav>
-    <div class="seccion-header">
-  <img src="img/img21.png" alt="Decoración misión" class="decoracion-seccion">
-  <h1 class="section-title">Misión y Visión</h1>
-</div>
-    <div class="container" style="padding-top:120px;">
-        <h1 class="section-title">Misión y Visión</h1>
-        <section id="mision" class="info-block">
-            <h2>Misión</h2>
-            <p>
-                Nuestra misión es velar por la seguridad y confianza de los usuarios en cada paso de su experiencia digital, ofreciendo soluciones proactivas que prevengan fraudes en línea, bloqueen malware y eviten la pérdida de datos personales o corporativos, de modo que cada persona y organización pueda navegar, comunicarse y trabajar con plena tranquilidad.
-            </p>
-        </section>
-        <section id="vision" class="info-block">
-            <h2>Visión</h2>
-            <p>
-                Para el año 2028 proyectamos ser una empresa de ciberseguridad reconocida a nivel nacional distinguiéndonos por nuestra dedicación a la excelencia y la protección de los datos personales de nuestros clientes. Nuestro compromiso se reflejará en la confianza que nuestros clientes depositen en nosotros tanto individuos como organizaciones, sabiendo que estamos constantemente adaptándonos y mejorando para garantizar la máxima seguridad en un entorno digital en evolución constante.
-            </p>
-        </section>
+    <ul class="nav-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li class="dropdown">
+        <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="mision-vision.html">Misión y Visión</a></li>
+          <li><a href="justificacion.html">Justificación</a></li>
+          <li><a href="objetivos.html">Objetivos</a></li>
+          <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
+          <li><a href="personal.html">Personal</a></li>
+        </ul>
+      </li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="burger"><div></div><div></div><div></div></div>
+  </div>
+</nav>
+<div class="navbar-space"></div>
+
+<main>
+    <div class="titulo-seccion">Misión</div>
+    <div class="contenido-seccion">
+        Brindar soluciones integrales de seguridad informática, protegiendo la información y los activos digitales de nuestros clientes mediante servicios innovadores, confiables y personalizados.
     </div>
+    <div class="separador"></div>
+    <div class="titulo-seccion">Visión</div>
+    <div class="contenido-seccion">
+        Ser la empresa líder en seguridad informática en la región, reconocida por la excelencia, la innovación y el compromiso con la protección del entorno digital de empresas y profesionales.
+    </div>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>SCOM</h4>
+            <p style="font-size: 0.98em; margin-bottom: 10px;">
+                Tu socio de confianza en seguridad informática.<br>
+                Protegiendo el futuro digital de empresas y profesionales.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>Servicios</h4>
+            <ul class="footer-links">
+                <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
+                <li><a href="#servicios">Seguridad en la Nube</a></li>
+                <li><a href="#servicios">Desarrollo Seguro</a></li>
+                <li><a href="#servicios">Auditoría de seguridad</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div class="copyright">
+        <p style="margin:0;">&copy; 2025 SCOM - Seguridad Informática. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<div id="instagram-float">
+    <a href="https://instagram.com/scomciberseguridad" target="_blank" title="Instagram SCOM">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+<a id="boton-secreto" href="financiero.html" title="Módulo financiero">
+    <i class="fas fa-coins"></i>
+</a>
+<script>
+    setTimeout(function() {
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        if (burger && navLinks) {
+            burger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                burger.classList.toggle('active');
+            });
+        }
+    }, 300);
+</script>
 </body>
 </html>
