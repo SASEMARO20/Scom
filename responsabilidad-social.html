@@ -1,1 +1,307 @@
-d
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Responsabilidad Social | SCOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --purple-dark: #240046;
+            --accent: #a259ea;
+            --bg: #faf7ff;
+            --content-width: 1100px;
+        }
+        html, body {
+            height:100%;
+            margin:0;
+            padding:0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--purple-dark);
+        }
+
+        nav{
+            width:100%;
+            background:var(--purple-dark);
+            color:#fff;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:1000;
+            box-shadow:0 2px 10px rgba(0,0,0,0.06);
+        }
+        .nav-container{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            max-width:1200px;
+            margin:0 auto;
+            padding:0 24px;
+            height:100px;
+        }
+        .logo{ display:flex; align-items:center; gap:12px; text-decoration:none; color:#fff; font-weight:700; font-size:1.9rem; }
+        .logo-circle{ width:77px; height:77px; border-radius:50%; overflow:hidden; background:#fff; display:flex; align-items:center; justify-content:center; border:2px solid var(--accent); }
+        .logo-circle img{ width:75px; height:75px; object-fit:cover; border-radius:50%; }
+
+        .nav-links{ list-style:none; display:flex; gap:28px; align-items:center; margin:0; padding:0; }
+        .nav-links a{ color:#fff; text-decoration:none; padding:8px 12px; border-radius:6px; font-weight:500; }
+        .nav-links a:hover, .nav-links .active{ background:var(--accent); color:#fff; }
+        .dropdown{ position:relative; }
+        .dropdown-menu{ display:none; position:absolute; top:110%; left:0; background:var(--purple-dark); min-width:180px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.1); z-index:999; }
+        .dropdown:hover .dropdown-menu{ display:block; }
+        .dropdown-menu a{ display:block; padding:10px 14px; color:#fff; text-decoration:none; }
+
+        .burger{ display:none; }
+        @media (max-width:900px){
+            .nav-container{ flex-direction:column; align-items:flex-start; height:auto; padding:10px 16px; }
+            .nav-links{ flex-direction:column; width:100%; display:none; background:var(--purple-dark); margin-top:10px; gap:0; }
+            .nav-links.active{ display:flex; }
+            .burger{ display:flex; gap:6px; cursor:pointer; }
+            .burger div{ width:28px; height:3px; background:#fff; border-radius:2px; }
+        }
+
+        .navbar-space{ height:100px; }
+
+        .main-wrapper{ position:relative; z-index:1; max-width:var(--content-width); margin:0 auto 48px auto; padding:18px; }
+        main{ margin:0; position:relative; z-index:1; }
+
+        .page-title{
+            margin-top:18px;
+            margin-bottom:18px;
+            background:rgba(255,255,255,0.95);
+            display:inline-block;
+            padding:14px 22px;
+            border-radius:12px;
+            box-shadow:0 6px 20px rgba(162,89,234,0.08);
+            font-size:1.8rem;
+            color:var(--purple-dark);
+        }
+
+        .intro-card{
+            background:rgba(255,255,255,0.96);
+            border-radius:14px;
+            padding:22px;
+            box-shadow:0 6px 30px rgba(120,0,180,0.06);
+            margin-bottom:22px;
+            line-height:1.6;
+            color:#333;
+        }
+
+        .pillars{
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap:18px;
+            margin-top:18px;
+        }
+        .pillar{
+            background:#fff;
+            border-radius:12px;
+            padding:18px;
+            box-shadow:0 4px 18px rgba(120,0,180,0.06);
+            text-align:left;
+            min-height:160px;
+            position:relative;
+        }
+        .pillar .icon{
+            font-size:28px;
+            color:var(--accent);
+            background:#f3eaff;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:48px;
+            height:48px;
+            border-radius:10px;
+            margin-bottom:10px;
+        }
+        .pillar h3{ margin:8px 0; color:var(--purple-dark); font-size:1.05rem; }
+        .pillar p, .pillar li{ color:#444; font-size:0.98rem; }
+
+        .side-img{
+            position:absolute;
+            top: clamp(160px, 18vh, 260px);
+            width: clamp(180px, 20vw, 320px);
+            height:auto;
+            pointer-events:none;
+            z-index:0;
+            filter: drop-shadow(0 12px 30px rgba(36,0,70,0.08));
+        }
+        .side-img.left{
+            left: calc((100% - var(--content-width)) / 2 - 70px);
+        }
+        .side-img.right{
+            right: calc((100% - var(--content-width)) / 2 - 70px);
+        }
+
+        .main-wrapper > * { position:relative; z-index:1; }
+        footer{
+            background:var(--purple-dark);
+            color:#fff;
+            padding:24px 0 0 0;
+            width:100%;
+            position:relative;
+            z-index:3;
+        }
+        .footer-container{ max-width:1200px; margin:0 auto; padding:0 24px; display:flex; gap:10px; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; }
+        .footer-col{ min-width:180px; }
+        .footer-col h4{ margin:0 0 10px 0; color:#fff; position:relative; padding-bottom:6px; }
+        .footer-col h4:after{ content:''; position:absolute; left:0; bottom:0; width:36px; height:2px; background:var(--accent); }
+        .footer-links{ list-style:none; padding:0; margin:0; color:#fff; }
+        .copyright{ text-align:center; padding:12px 0 18px 0; margin-top:10px; border-top:1px solid var(--accent); color:#fff; }
+
+        #instagram-float{ position:fixed; bottom:24px; right:24px; z-index:1004; }
+        #instagram-float a{ background:#fff; border-radius:50%; padding:10px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(80,0,120,0.13); color:#e1306c; font-size:28px; text-decoration:none; }
+
+        @media (max-width:1000px){
+            .pillars{ grid-template-columns: 1fr; }
+            .page-title{ font-size:1.5rem; }
+            .side-img{ display:none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-circle"><img src="img/img12.jpg" alt="Logo SCOM"></span>
+          SCOM
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html#inicio">Inicio</a></li>
+
+          <li class="dropdown">
+            <a href="#">Estratégico <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="mision-vision.html">Misión y Visión</a></li>
+              <li><a href="objetivos.html">Objetivos</a></li>
+              <li><a href="justificacion.html">Justificación</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#">Operacional <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
+              <li><a href="bitacoras.html">Bitácoras</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#">Organización <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="personal.html">Organigrama</a></li>
+              <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+              <li><a href="responsabilidad-social.html" class="active">Responsabilidad social</a></li>
+            </ul>
+          </li>
+
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div class="burger"><div></div><div></div><div></div></div>
+      </div>
+    </nav>
+
+    <div class="navbar-space"></div>
+
+    <div class="main-wrapper">
+        <img src="img/img33.jpeg" alt="decoración izquierda" class="side-img left" aria-hidden="true">
+        <img src="img/img34.jpeg" alt="decoración derecha" class="side-img right" aria-hidden="true">
+
+        <main>
+            <div class="page-title">Plan de Responsabilidad Social Empresarial (RSE)</div>
+
+            <div class="intro-card">
+                <p>
+                    SCOM, como empresa dedicada a la ciberseguridad, asume su compromiso con la sociedad promoviendo el uso ético, seguro y responsable de la tecnología.
+                    Su enfoque de RSE se basa en tres pilares que buscan contribuir al bienestar social, al desarrollo de capacidades digitales y a la construcción de un entorno digital más seguro y equitativo.
+                </p>
+            </div>
+
+            <div class="pillars">
+                <div class="pillar">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>1. Protección digital para todos</h3>
+                    <p>
+                        SCOM busca democratizar el acceso a la ciberseguridad, ofreciendo soluciones asequibles a pequeñas y medianas empresas, las cuales suelen estar más expuestas a amenazas cibernéticas por falta de recursos.
+                        De esta forma, contribuye a reducir la brecha digital en términos de protección.
+                    </p>
+                </div>
+
+                <div class="pillar">
+                    <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>2. Educación y conciencia digital</h3>
+                    <p>
+                        A través de este proyecto, SCOM incluirá actividades de capacitación y sensibilización en buenas prácticas de seguridad informática para empleados y usuarios finales.
+                        Esto no solo protege datos, sino que fortalece la cultura digital responsable.
+                    </p>
+                </div>
+
+                <div class="pillar">
+                    <div class="icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>3. Ética, legalidad y sostenibilidad</h3>
+                    <p>
+                        SCOM garantiza que sus servicios cumplan con la legislación vigente en protección de datos y con estándares internacionales.
+                        Además, promueve el desarrollo sostenible al reducir riesgos que puedan comprometer la continuidad operativa de las empresas y la seguridad de sus comunidades digitales.
+                    </p>
+                </div>
+            </div>
+
+            <div class="intro-card" style="margin-top:18px;">
+                <p>
+                    Con este proyecto, SCOM no solo ofrece un servicio técnico, sino que también contribuye al bienestar social, al desarrollo de capacidades digitales y a la construcción de un entorno digital más seguro y equitativo.
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>SCOM</h4>
+                <p style="font-size:0.98em; margin-bottom:10px;">
+                    Tu socio de confianza en seguridad informática.<br>
+                    Protegiendo el futuro digital de empresas y profesionales.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Secciones</h4>
+                <ul class="footer-links">
+                    <li><a href="mision-vision.html">Misión y Visión</a></li>
+                    <li><a href="personal.html">Organigrama</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p style="margin:0;">&copy; 2025 SCOM - Seguridad Informática. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="instagram-float">
+        <a href="https://instagram.com/scomciberseguridad" target="_blank" title="Instagram SCOM">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <a id="boton-secreto" href="financiero.html" title="Módulo financiero" style="display:none;">
+        <i class="fas fa-coins"></i>
+    </a>
+
+    <script>
+        setTimeout(function(){
+            const burger = document.querySelector('.burger');
+            const navLinks = document.querySelector('.nav-links');
+            if(burger && navLinks){
+                burger.addEventListener('click', function(){
+                    navLinks.classList.toggle('active');
+                    burger.classList.toggle('active');
+                });
+            }
+        }, 200);
+    </script>
+</body>
+</html>
