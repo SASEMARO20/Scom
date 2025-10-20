@@ -18,14 +18,14 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.06);
         }
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            height: 80px;
+            .nav-container {
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+              max-width: 1200px;
+              margin: 0 auto;
+             padding: 0 24px;
+             height: 100px; /
         }
         .logo {
             display: flex;
@@ -284,33 +284,45 @@
 <body>
 
 <nav>
-  <div class="container nav-container">
+  <div class="nav-container">
     <a href="index.html" class="logo">
       <span class="logo-circle">
         <img src="img/img12.jpg" alt="Logo SCOM">
       </span>
       SCOM
     </a>
+
     <ul class="nav-links">
-        <li><a href="index.html#inicio">Inicio</a></li>
-        <li class="dropdown">
-            <a href="#">Servicios <i class="fas fa-caret-down"></i></a>
-            <ul class="dropdown-menu">
-                <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#">Nosotros <i class="fas fa-caret-down"></i></a>
-            <ul class="dropdown-menu">
-                <li><a href="mision-vision.html">Misión y Visión</a></li>
-                <li><a href="justificacion.html">Justificación</a></li>
-                <li><a href="objetivos.html">Objetivos</a></li>
-                <li><a href="matriz-dofa.html">Matriz DOFA</a></li>
-                <li><a href="personal.html">Personal</a></li>
-            </ul>
-        </li>
-        <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="index.html#inicio">Inicio</a></li>
+
+      <li class="dropdown">
+        <a href="#">Estratégico <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="mision-vision.html">Misión y Visión</a></li>
+          <li><a href="objetivos.html">Objetivos</a></li>
+          <li><a href="justificacion.html">Justificación</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Operacional <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Organización <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="personal.html">Organigrama</a></li>
+          <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+          <li><a href="responsabilidad-social.html">Responsabilidad social</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contacto.html">Contacto</a></li>
     </ul>
+
     <div class="burger"><div></div><div></div><div></div></div>
   </div>
 </nav>
@@ -442,7 +454,6 @@
         navLinks.classList.toggle('active');
         burger.classList.toggle('active');
     });
-    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const target = document.querySelector(this.getAttribute('href'));
@@ -457,12 +468,12 @@
             }
         });
     });
-
     const ventajasList = document.getElementById('ventajasList');
     const ventajas = document.querySelectorAll('.ventaja-item');
     const prevBtn = document.getElementById('prevVentaja');
     const nextBtn = document.getElementById('nextVentaja');
     let ventajaIndex = 0;
+
     function showVentaja(idx) {
         ventajasList.style.transform = `translateX(-${idx * 100}%)`;
     }
