@@ -1,1 +1,309 @@
-d
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sostenibilidad | SCOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root{
+            --purple-dark: #240046;
+            --accent: #a259ea;
+            --mid: #7c3aed;
+            --bg: #faf7ff;
+        }
+        html,body{
+            height:100%;
+            margin:0;
+            padding:0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--purple-dark);
+        }
+
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(rgba(250,247,255,0.88), rgba(250,247,255,0.88)),
+                url('img/img29.jpeg') center/cover no-repeat;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        nav{
+            width:100%;
+            background: var(--purple-dark);
+            color:#fff;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .nav-container{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            max-width:1200px;
+            margin:0 auto;
+            padding:0 24px;
+            height:100px;
+        }
+        .logo{ display:flex; align-items:center; gap:12px; text-decoration:none; color:#fff; font-weight:700; font-size:1.9rem; }
+        .logo-circle{ width:77px; height:77px; border-radius:50%; overflow:hidden; background:#fff; display:flex; align-items:center; justify-content:center; border:2px solid var(--accent); }
+        .logo-circle img{ width:75px; height:75px; object-fit:cover; border-radius:50%; }
+
+        .nav-links{ list-style:none; display:flex; gap:28px; align-items:center; margin:0; padding:0; }
+        .nav-links a{ color:#fff; text-decoration:none; padding:8px 12px; border-radius:6px; font-weight:500; }
+        .nav-links a:hover, .nav-links .active{ background:var(--accent); color:#fff; }
+        .dropdown{ position:relative; }
+        .dropdown-menu{ display:none; position:absolute; top:110%; left:0; background:var(--purple-dark); min-width:180px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.12); z-index:999; }
+        .dropdown:hover .dropdown-menu{ display:block; }
+        .dropdown-menu a{ display:block; padding:10px 14px; color:#fff; text-decoration:none; }
+
+        .burger{ display:none; }
+        @media (max-width:900px){
+            .nav-container{ flex-direction:column; align-items:flex-start; height:auto; padding:10px 16px; }
+            .nav-links{ flex-direction:column; width:100%; display:none; background:var(--purple-dark); margin-top:10px; gap:0; }
+            .nav-links.active{ display:flex; }
+            .burger{ display:flex; gap:6px; cursor:pointer; }
+            .burger div{ width:28px; height:3px; background:#fff; border-radius:2px; }
+        }
+
+        .navbar-space{ height:100px; }
+        main{ position:relative; z-index:1; max-width:1100px; margin: 0 auto 48px auto; padding:18px; }
+        .page-title{
+            margin-top:18px;
+            display:inline-block;
+            background:rgba(255,255,255,0.96);
+            padding:14px 22px;
+            border-radius:12px;
+            box-shadow: 0 6px 20px rgba(162,89,234,0.08);
+            font-size:1.8rem;
+            color:var(--purple-dark);
+        }
+
+        .lead-card{
+            background:rgba(255,255,255,0.96);
+            border-radius:14px;
+            padding:22px;
+            box-shadow:0 6px 30px rgba(120,0,180,0.06);
+            margin-top:18px;
+            line-height:1.6;
+            color:#333;
+        }
+
+        .sections-grid{
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap:18px;
+            margin-top:18px;
+        }
+        .section-card{
+            background:#fff;
+            border-radius:12px;
+            padding:18px;
+            box-shadow:0 4px 18px rgba(120,0,180,0.06);
+            min-height:220px;
+            position:relative;
+            overflow:visible;
+            padding-right:160px; 
+        }
+        .section-card .card-content { position:relative; z-index:1; } 
+        .section-card .icon{
+            width:48px; height:48px; display:inline-flex; align-items:center; justify-content:center;
+            background:#f3eaff; color:var(--accent); border-radius:10px; font-size:22px; margin-bottom:10px;
+        }
+        .section-card h3{ margin:8px 0; color:var(--purple-dark); font-size:1.05rem; }
+        .section-card p, .section-card li{ color:#444; font-size:0.98rem; }
+
+        .decor-img {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 140px;
+            max-width: 34%;
+            opacity: 0.27; 
+            pointer-events: none;
+            z-index: 0;
+            filter: drop-shadow(0 8px 20px rgba(36,0,70,0.06));
+        }
+
+        footer{ position:relative; z-index:2; background:var(--purple-dark); color:#fff; padding:24px 0 0 0; width:100%; margin-top:24px; }
+        .footer-container{ max-width:1200px; margin:0 auto; padding:0 24px; display:flex; gap:10px; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; }
+        .footer-col{ min-width:180px; }
+        .footer-col h4{ margin:0 0 10px 0; color:#fff; position:relative; padding-bottom:6px; }
+        .footer-col h4:after{ content:''; position:absolute; left:0; bottom:0; width:36px; height:2px; background:var(--accent); }
+        .footer-links{ list-style:none; padding:0; margin:0; color:#fff; }
+        .copyright{ text-align:center; padding:12px 0 18px 0; margin-top:10px; border-top:1px solid var(--accent); color:#fff; }
+
+        #instagram-float{ position:fixed; bottom:24px; right:24px; z-index:1002; }
+        #instagram-float a{ background:#fff; border-radius:50%; padding:10px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(80,0,120,0.13); color:#e1306c; font-size:28px; text-decoration:none; }
+
+        @media (max-width:1000px){
+            .sections-grid{ grid-template-columns: 1fr; }
+            .page-title{ font-size:1.5rem; }
+            .section-card{ padding-right:22px; }
+            .decor-img { width: 90px; top: auto; bottom: 10px; right: 10px; opacity: 0.22; max-width: 30%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <nav>
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-circle"><img src="img/img12.jpg" alt="Logo SCOM"></span>
+            SCOM
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+
+            <li class="dropdown">
+                <a href="#">Estratégico <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="mision-vision.html">Misión y Visión</a></li>
+                    <li><a href="objetivos.html">Objetivos</a></li>
+                    <li><a href="justificacion.html">Justificación</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Operacional <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="que-ofrecemos.html">¿Qué ofrecemos?</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Organización <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="personal.html">Organigrama</a></li>
+                    <li><a href="sostenibilidad.html" class="active">Sostenibilidad</a></li>
+                    <li><a href="responsabilidad-social.html">Responsabilidad social</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div class="burger"><div></div><div></div><div></div></div>
+      </div>
+    </nav>
+
+    <div class="navbar-space"></div>
+
+    <main>
+        <div class="page-title">Sostenibilidad Ambiental | SCOM</div>
+
+        <div class="lead-card">
+            <p>
+                El compromiso de SCOM Ciberseguridad se extiende más allá de la seguridad digital, abarcando la responsabilidad ambiental. Nuestro plan se enfoca en minimizar nuestra huella operativa y promover prácticas ecológicas dentro y fuera de la oficina, garantizando un crecimiento que respete el entorno natural.
+            </p>
+        </div>
+
+        <div class="sections-grid">
+            <div class="section-card">
+                <div class="card-content">
+                    <div class="icon"><i class="fas fa-sun"></i></div>
+                    <h3>1. Eficiencia Energética y Energía Limpia (El Sol como Fuente)</h3>
+                    <p>
+                        El pilar energético busca reducir significativamente la dependencia de la red eléctrica tradicional, optando por fuentes renovables y promoviendo el consumo consciente.
+                    </p>
+                    <ul>
+                        <li><b>Implementación de Energía Solar Fotovoltaica:</b> Se instalarán paneles solares de alta eficiencia en la cubierta de las instalaciones de SCOM para generar parte de la energía consumida por equipos e iluminación, reduciendo la emisión de carbono.</li>
+                        <li><b>Gestión Inteligente de Consumo:</b> Sensores de movimiento en áreas comunes y luminarias LED de bajo consumo en toda la oficina para minimizar el derroche energético.</li>
+                    </ul>
+                </div>
+                <img src="img/img30.jpeg" alt="Icono Sol" class="decor-img" aria-hidden="true">
+            </div>
+
+            <div class="section-card">
+                <div class="card-content">
+                    <div class="icon"><i class="fas fa-water"></i></div>
+                    <h3>2. Gestión Hídrica Sostenible (Reutilización del Agua de Lluvia)</h3>
+                    <p>
+                        Reconocemos la importancia de la conservación del recurso hídrico local y proponemos medidas para su uso responsable.
+                    </p>
+                    <ul>
+                        <li><b>Sistema de Captación de Agua Lluvia:</b> Instalación de canaletas perimetrales para recolectar agua pluvial, redirigiéndola a depósitos de almacenamiento y filtrado.</li>
+                        <li><b>Uso del Agua Recolectada:</b> El agua recolectada se utilizará para riego de jardines y recarga de cisternas de inodoros (uso no potable), reduciendo el consumo de agua potable.</li>
+                    </ul>
+                </div>
+                <img src="img/img31.jpeg" alt="Icono Agua" class="decor-img" aria-hidden="true">
+            </div>
+
+            <div class="section-card">
+                <div class="card-content">
+                    <div class="icon"><i class="fas fa-recycle"></i></div>
+                    <h3>3. Programa de Gestión Integral de Residuos</h3>
+                    <p>
+                        La gestión de residuos se centra en la correcta disposición de materiales y en reducir el impacto de la basura tecnológica.
+                    </p>
+                    <ul>
+                        <li><b>Reciclaje de Residuos Electrónicos (E-waste):</b> Convenios con gestores certificados para la disposición y reciclaje de equipos informáticos obsoletos, baterías y hardware, evitando contaminación por metales pesados.</li>
+                        <li><b>Reciclaje Convencional y Consumo Responsable:</b> Estaciones de reciclaje para papel, plástico y cartón; políticas de impresión a doble cara y reutilización de papel para reducir consumo.</li>
+                    </ul>
+                </div>
+                <img src="img/img32.jpeg" alt="Icono Reciclaje" class="decor-img" aria-hidden="true">
+            </div>
+        </div>
+
+        <div class="lead-card" style="margin-top:18px;">
+            <p>
+                Con estos pilares, SCOM Ciberseguridad no solo ofrece seguridad digital a la comunidad, sino que también contribuye activamente a la sostenibilidad ambiental del entorno local.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>SCOM</h4>
+                <p style="font-size:0.98em; margin-bottom:10px;">
+                    Tu socio de confianza en seguridad informática.<br>
+                    Protegiendo el futuro digital de empresas y profesionales.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Secciones</h4>
+                <ul class="footer-links">
+                    <li><a href="mision-vision.html">Misión y Visión</a></li>
+                    <li><a href="personal.html">Organigrama</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p style="margin:0;">&copy; 2025 SCOM - Seguridad Informática. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="instagram-float">
+        <a href="https://instagram.com/scomciberseguridad" target="_blank" title="Instagram SCOM">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <a id="boton-secreto" href="financiero.html" title="Módulo financiero" style="display:none;">
+        <i class="fas fa-coins"></i>
+    </a>
+
+    <script>
+        setTimeout(function(){
+            const burger = document.querySelector('.burger');
+            const navLinks = document.querySelector('.nav-links');
+            if(burger && navLinks){
+                burger.addEventListener('click', function(){
+                    navLinks.classList.toggle('active');
+                    burger.classList.toggle('active');
+                });
+            }
+        }, 200);
+    </script>
+</body>
+</html>
