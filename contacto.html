@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Justificación | SCOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | SCOM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -11,22 +12,13 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: transparent;
+            background: #faf7ff;
         }
         body {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background: transparent;
-        }
-        .background-blur {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: url('img/img23.jpeg') center center/cover no-repeat;
-            filter: brightness(0.85);
+            background: #faf7ff;
         }
         .navbar-space {
             height: 100px;
@@ -185,37 +177,142 @@
             justify-content: flex-start;
             width: 100%;
         }
-        .titulo-seccion {
-            margin-top: 120px;
-            margin-bottom: 18px;
+        .contact-section {
+            max-width: 1100px;
+            margin: 0 auto 40px auto;
+            padding: 40px 20px 30px 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(120,0,180,0.10);
+        }
+        .contact-header {
+            text-align: center;
             color: #240046;
-            font-size: 2.2rem;
+            font-size: 2.3em;
             font-weight: bold;
+            margin-bottom: 10px;
             letter-spacing: 1px;
-            text-align: center;
-            background: rgba(255,255,255,0.85);
-            border-radius: 16px;
-            padding: 14px 28px 8px 28px;
-            max-width: 500px;
-            box-shadow: 0 2px 16px rgba(120,0,180,0.10);
         }
-        .contenido-seccion {
-            background: rgba(255,255,255,0.85);
-            border-radius: 16px;
-            padding: 22px 28px 22px 28px;
-            max-width: 600px;
-            margin-bottom: 32px;
+        .contact-subtitle {
+            text-align: center;
+            color: #7c3aed;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .contact-info {
+            flex:1;
+            min-width:260px;
+            max-width:350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 18px;
+        }
+        .contact-info h3 {
             color: #240046;
-            font-size: 1.08rem;
-            text-align: center;
-            box-shadow: 0 2px 16px rgba(120,0,180,0.10);
-            font-weight: 500;
+            font-size: 1.25em;
+            margin-bottom: 8px;
         }
+        .contact-info p {
+            color: #6c3483;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+        }
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 1.08em;
+            color: #240046;
+        }
+        .contact-details i {
+            color: #a259ea;
+            font-size: 1.3em;
+            background: #f3eaff;
+            border-radius: 50%;
+            padding: 8px;
+            margin-right: 2px;
+        }
+        .contact-form-container {
+            flex:1;
+            min-width:260px;
+            max-width:400px;
+            background: #faf7ff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(120,0,180,0.07);
+            padding: 28px 22px 22px 22px;
+        }
+        .contact-form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .contact-form-container label {
+            color: #240046;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        .contact-form-container input,
+        .contact-form-container textarea {
+            border: 1.5px solid #a259ea;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 1em;
+            background: #fff;
+            color: #240046;
+            transition: border 0.2s;
+            outline: none;
+        }
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            border: 2px solid #240046;
+            background: #f3eaff;
+        }
+        .contact-form-container button {
+            background: linear-gradient(90deg, #a259ea 0%, #240046 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(120,0,180,0.10);
+        }
+        .contact-form-container button:hover {
+            background: linear-gradient(90deg, #240046 0%, #a259ea 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        @media (max-width: 900px) {
+            .contact-container {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .contact-section {
+                padding: 20px 4vw 20px 4vw;
+            }
+        }
+    
         footer {
             background: #240046;
             color: #fff;
             padding: 24px 0 0 0;
             width: 100%;
+            margin-top: 40px;
         }
         .footer-container {
             display: flex;
@@ -296,25 +393,9 @@
             box-shadow: 0 4px 16px rgba(162,89,234,0.18);
             background: #f8e1f4;
         }
-        @media (max-width: 700px) {
-            .titulo-seccion, .contenido-seccion {
-                padding: 10px 4px;
-                max-width: 98vw;
-                font-size: 1em;
-            }
-            .titulo-seccion {
-                font-size: 1.3rem;
-                margin-top: 110px;
-            }
-            .footer-container {
-                padding: 0 8px;
-            }
-        }
     </style>
 </head>
 <body>
-<div class="background-blur"></div>
-
 <nav>
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -362,10 +443,38 @@
 <div class="navbar-space"></div>
 
 <main>
-    <div class="titulo-seccion">Justificación</div>
-    <div class="contenido-seccion">
-        El proyecto a corto plazo de SCOM es crítico para responder de inmediato y eficazmente a las amenazas emergentes a la seguridad cibernética. Reforzará la confianza del mercado en SCOM, evitará daños económicos y a la información. Esto además garantiza la estabilidad operativa de los clientes y añade a la reputación de la empresa como un pilar de la ciberseguridad mundial. Este esfuerzo de primer nivel sienta las bases para una expansión de la escala de desarrollo posterior y posiciona a SCOM como un socio clave en la creación de entornos digitales seguros.
-    </div>
+    <section class="contact-section" id="contacto">
+        <h1 class="contact-header">Contáctanos</h1>
+        <div class="contact-subtitle">
+            <i class="fas fa-comments" style="color:#a259ea; margin-right:8px;"></i>
+            ¿Tienes alguna pregunta? ¡Estamos para ayudarte!
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3><i class="fas fa-user-shield"></i> SCOM Ciberseguridad</h3>
+                <p>Envíanos tus dudas, comentarios o solicitudes. Nuestro equipo te responderá lo antes posible.</p>
+                <ul class="contact-details">
+                    <li><i class="fas fa-phone"></i><span>+57 320 4737 899</span></li>
+                    <li><i class="fas fa-envelope"></i><span>scomciberseguridad@gmail.com</span></li>
+                    <li><i class="fab fa-instagram"></i><span>@scomciberseguridad</span></li>
+                </ul>
+            </div>
+            <div class="contact-form-container">
+                <form id="contactForm" action="https://formsubmit.co/scomciberseguridad@gmail.com" method="POST">
+                    <label for="name"><i class="fas fa-user"></i> Nombre</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="phone"><i class="fas fa-phone"></i> Teléfono</label>
+                    <input type="text" id="phone" name="phone">
+                    <label for="message"><i class="fas fa-comment-dots"></i> Mensaje</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <input type="hidden" name="_next" value="gracias.html">
+                    <button type="submit" class="servicios-btn"><i class="fas fa-paper-plane"></i> ENVIAR MENSAJE</button>
+                </form>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer>
