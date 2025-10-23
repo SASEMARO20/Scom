@@ -10,8 +10,8 @@
         :root{
             --purple-dark: #240046;
             --accent: #a259ea;
-            --mid: #7c3aed;
             --bg: #faf7ff;
+            --content-width: 1100px;
         }
         html,body{
             height:100%;
@@ -26,10 +26,45 @@
             position: fixed;
             inset: 0;
             background:
-                linear-gradient(rgba(250,247,255,0.88), rgba(250,247,255,0.88)),
+                linear-gradient(rgba(250,247,255,0.85), rgba(250,247,255,0.85)),
                 url('img/img29.jpeg') center/cover no-repeat;
             z-index: 0;
             pointer-events: none;
+        }
+
+        .side-img {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(140px, 16vw, 340px);
+            height: auto;
+            pointer-events: none;
+            z-index: 1; 
+            opacity: 0.98;
+            filter: drop-shadow(0 12px 30px rgba(36,0,70,0.10));
+            transition: left .18s ease, right .18s ease;
+        }
+
+        .side-img.left{
+            left: max(12px, calc((100vw - var(--content-width)) / 2 - 320px));
+        }
+        .side-img.right{
+            right: max(12px, calc((100vw - var(--content-width)) / 2 - 320px));
+        }
+        @media (max-width:1600px){
+            .side-img.left{ left: max(8px, calc((100vw - var(--content-width)) / 2 - 260px)); }
+            .side-img.right{ right: max(8px, calc((100vw - var(--content-width)) / 2 - 260px)); }
+        }
+        @media (max-width:1400px){
+            .side-img.left{ left: max(8px, calc((100vw - var(--content-width)) / 2 - 200px)); }
+            .side-img.right{ right: max(8px, calc((100vw - var(--content-width)) / 2 - 200px)); }
+        }
+        @media (max-width:1100px){
+            .side-img.left{ left: max(8px, calc((100vw - var(--content-width)) / 2 - 120px)); }
+            .side-img.right{ right: max(8px, calc((100vw - var(--content-width)) / 2 - 120px)); }
+        }
+        @media (max-width:1000px){
+            .side-img{ display:none; } 
         }
 
         nav{
@@ -73,11 +108,12 @@
         }
 
         .navbar-space{ height:100px; }
-        main{ position:relative; z-index:1; max-width:1100px; margin: 0 auto 48px auto; padding:18px; }
+        main{ position:relative; z-index:2; max-width:var(--content-width); margin: 0 auto 48px auto; padding:18px; }
+
         .page-title{
             margin-top:18px;
             display:inline-block;
-            background:rgba(255,255,255,0.96);
+            background:rgba(255,255,255,0.94);
             padding:14px 22px;
             border-radius:12px;
             box-shadow: 0 6px 20px rgba(162,89,234,0.08);
@@ -86,7 +122,7 @@
         }
 
         .lead-card{
-            background:rgba(255,255,255,0.96);
+            background:rgba(255,255,255,0.92);
             border-radius:14px;
             padding:22px;
             box-shadow:0 6px 30px rgba(120,0,180,0.06);
@@ -101,34 +137,33 @@
             gap:18px;
             margin-top:18px;
         }
+
         .section-card{
-            background:#fff;
+            background:rgba(255,255,255,0.92);
             border-radius:12px;
             padding:18px;
             box-shadow:0 4px 18px rgba(120,0,180,0.06);
             min-height:220px;
             position:relative;
             overflow:visible;
-            padding-right:160px; 
         }
-        .section-card .card-content { position:relative; z-index:1; } 
-        .section-card .icon{
-            width:48px; height:48px; display:inline-flex; align-items:center; justify-content:center;
-            background:#f3eaff; color:var(--accent); border-radius:10px; font-size:22px; margin-bottom:10px;
-        }
+        .section-card .card-content { position:relative; z-index:2; }
+        .section-card .icon{ width:48px; height:48px; display:inline-flex; align-items:center; justify-content:center; background:#f3eaff; color:var(--accent); border-radius:10px; font-size:22px; margin-bottom:10px; }
         .section-card h3{ margin:8px 0; color:var(--purple-dark); font-size:1.05rem; }
         .section-card p, .section-card li{ color:#444; font-size:0.98rem; }
-
         .decor-img {
             position: absolute;
-            top: 18px;
+            top: 50%;
             right: 18px;
+            transform: translateY(-50%);
             width: 140px;
-            max-width: 34%;
-            opacity: 0.27; 
+            max-width: 40%;
+            opacity: 0.28;
             pointer-events: none;
-            z-index: 0;
+            z-index:1;
             filter: drop-shadow(0 8px 20px rgba(36,0,70,0.06));
+            transition: transform .18s ease, opacity .18s ease;
+            mix-blend-mode: multiply;
         }
 
         footer{ position:relative; z-index:2; background:var(--purple-dark); color:#fff; padding:24px 0 0 0; width:100%; margin-top:24px; }
@@ -146,12 +181,23 @@
             .sections-grid{ grid-template-columns: 1fr; }
             .page-title{ font-size:1.5rem; }
             .section-card{ padding-right:22px; }
-            .decor-img { width: 90px; top: auto; bottom: 10px; right: 10px; opacity: 0.22; max-width: 30%; }
+            .decor-img {
+                width: 90px;
+                top: auto;
+                bottom: 10px;
+                right: 10px;
+                transform: none;
+                opacity: 0.22;
+                max-width: 30%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="page-bg" aria-hidden="true"></div>
+
+    <img src="img/side-left.jpg" alt="" class="side-img left" aria-hidden="true">
+    <img src="img/side-right.jpg" alt="" class="side-img right" aria-hidden="true">
 
     <nav>
       <div class="nav-container">
@@ -199,7 +245,6 @@
 
     <main>
         <div class="page-title">Sostenibilidad Ambiental | SCOM</div>
-
         <div class="lead-card">
             <p>
                 El compromiso de SCOM Ciberseguridad se extiende más allá de la seguridad digital, abarcando la responsabilidad ambiental. Nuestro plan se enfoca en minimizar nuestra huella operativa y promover prácticas ecológicas dentro y fuera de la oficina, garantizando un crecimiento que respete el entorno natural.
@@ -219,7 +264,6 @@
                         <li><b>Gestión Inteligente de Consumo:</b> Sensores de movimiento en áreas comunes y luminarias LED de bajo consumo en toda la oficina para minimizar el derroche energético.</li>
                     </ul>
                 </div>
-                <img src="img/img30.jpeg" alt="Icono Sol" class="decor-img" aria-hidden="true">
             </div>
 
             <div class="section-card">
@@ -234,7 +278,6 @@
                         <li><b>Uso del Agua Recolectada:</b> El agua recolectada se utilizará para riego de jardines y recarga de cisternas de inodoros (uso no potable), reduciendo el consumo de agua potable.</li>
                     </ul>
                 </div>
-                <img src="img/img31.jpeg" alt="Icono Agua" class="decor-img" aria-hidden="true">
             </div>
 
             <div class="section-card">
@@ -249,7 +292,6 @@
                         <li><b>Reciclaje Convencional y Consumo Responsable:</b> Estaciones de reciclaje para papel, plástico y cartón; políticas de impresión a doble cara y reutilización de papel para reducir consumo.</li>
                     </ul>
                 </div>
-                <img src="img/img32.jpeg" alt="Icono Reciclaje" class="decor-img" aria-hidden="true">
             </div>
         </div>
 
