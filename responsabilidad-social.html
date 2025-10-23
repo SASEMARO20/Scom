@@ -13,13 +13,19 @@
             --bg: #faf7ff;
             --content-width: 1100px;
         }
+
         html, body {
             height:100%;
             margin:0;
             padding:0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: var(--bg);
             color: var(--purple-dark);
+            background-color: var(--bg);
+            background-image: url('../img/img35.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
         }
 
         nav{
@@ -64,13 +70,13 @@
 
         .navbar-space{ height:100px; }
 
-        .main-wrapper{ position:relative; z-index:1; max-width:var(--content-width); margin:0 auto 48px auto; padding:18px; }
-        main{ margin:0; position:relative; z-index:1; }
+        .main-wrapper{ position:relative; z-index:2; max-width:var(--content-width); margin:0 auto 48px auto; padding:18px; }
+        main{ margin:0; position:relative; z-index:2; }
 
         .page-title{
             margin-top:18px;
             margin-bottom:18px;
-            background:rgba(255,255,255,0.95);
+            background:rgba(255,255,255,0.92);
             display:inline-block;
             padding:14px 22px;
             border-radius:12px;
@@ -80,7 +86,7 @@
         }
 
         .intro-card{
-            background:rgba(255,255,255,0.96);
+            background:rgba(255,255,255,0.92); 
             border-radius:14px;
             padding:22px;
             box-shadow:0 6px 30px rgba(120,0,180,0.06);
@@ -96,7 +102,7 @@
             margin-top:18px;
         }
         .pillar{
-            background:#fff;
+            background:rgba(255,255,255,0.96);
             border-radius:12px;
             padding:18px;
             box-shadow:0 4px 18px rgba(120,0,180,0.06);
@@ -120,22 +126,47 @@
         .pillar p, .pillar li{ color:#444; font-size:0.98rem; }
 
         .side-img{
-            position:absolute;
-            top: clamp(160px, 18vh, 260px);
-            width: clamp(180px, 20vw, 320px);
-            height:auto;
-            pointer-events:none;
-            z-index:0;
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(140px, 16vw, 320px);
+            height: auto;
+            pointer-events: none;
+            z-index:1; 
             filter: drop-shadow(0 12px 30px rgba(36,0,70,0.08));
-        }
-        .side-img.left{
-            left: calc((100% - var(--content-width)) / 2 - 70px);
-        }
-        .side-img.right{
-            right: calc((100% - var(--content-width)) / 2 - 70px);
+            opacity: 0.98;
+            transition: left 200ms ease, right 200ms ease;
         }
 
-        .main-wrapper > * { position:relative; z-index:1; }
+
+        .side-img.left{
+            left: max(8px, calc((100vw - var(--content-width)) / 2 - 340px));
+        }
+        .side-img.right{
+            right: max(8px, calc((100vw - var(--content-width)) / 2 - 340px));
+        }
+
+        @media (max-width:1600px){
+            .side-img.left{ left: max(8px, calc((100vw - var(--content-width)) / 2 - 300px)); }
+            .side-img.right{ right: max(8px, calc((100vw - var(--content-width)) / 2 - 300px)); }
+        }
+        @media (max-width:1400px){
+            .side-img.left{ left: max(8px, calc((100vw - var(--content-width)) / 2 - 220px)); }
+            .side-img.right{ right: max(8px, calc((100vw - var(--content-width)) / 2 - 220px)); }
+        }
+        @media (max-width:1100px){
+            .side-img.left{ left: max(8px, calc((100vw - var(--content-width)) / 2 - 120px)); }
+            .side-img.right{ right: max(8px, calc((100vw - var(--content-width)) / 2 - 120px)); }
+        }
+        @media (max-width:1000px){
+            .side-img{ display:none; } 
+            .pillars{ grid-template-columns: 1fr; }
+            .page-title{ font-size:1.5rem; }
+            .main-wrapper{ padding-left:18px; padding-right:18px; }
+        }
+
+        .main-wrapper > * { position:relative; z-index:2; }
+
         footer{
             background:var(--purple-dark);
             color:#fff;
@@ -154,18 +185,13 @@
         #instagram-float{ position:fixed; bottom:24px; right:24px; z-index:1004; }
         #instagram-float a{ background:#fff; border-radius:50%; padding:10px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(80,0,120,0.13); color:#e1306c; font-size:28px; text-decoration:none; }
 
-        @media (max-width:1000px){
-            .pillars{ grid-template-columns: 1fr; }
-            .page-title{ font-size:1.5rem; }
-            .side-img{ display:none; }
-        }
     </style>
 </head>
 <body>
     <nav>
       <div class="nav-container">
         <a href="index.html" class="logo">
-          <span class="logo-circle"><img src="img/img12.jpg" alt="Logo SCOM"></span>
+          <span class="logo-circle"><img src="../img/img12.jpg" alt="Logo SCOM"></span>
           SCOM
         </a>
 
@@ -207,10 +233,10 @@
 
     <div class="navbar-space"></div>
 
-    <div class="main-wrapper">
-        <img src="img/img33.jpeg" alt="decoración izquierda" class="side-img left" aria-hidden="true">
-        <img src="img/img34.jpeg" alt="decoración derecha" class="side-img right" aria-hidden="true">
+    <img src="../img/img33.jpeg" alt="" class="side-img left" aria-hidden="true">
+    <img src="../img/img34.jpeg" alt="" class="side-img right" aria-hidden="true">
 
+    <div class="main-wrapper">
         <main>
             <div class="page-title">Plan de Responsabilidad Social Empresarial (RSE)</div>
 
